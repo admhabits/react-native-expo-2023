@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
-import CommonButton from '../components/Button';
+import { ButtonIcon } from '../components/Button';
 
 // create a component
 const Home = ({ navigation }) => {
@@ -11,7 +11,7 @@ const Home = ({ navigation }) => {
         {/* <Header /> */}
         <View style={styles.container}>
             <Text>Selamat Datang di React Native Academy</Text>
-            <CommonButton text={'Masuk Akun'} onPress={() => navigation.navigate('Login')}/>
+            <ButtonIcon name={'arrow-right'} onPress={() => navigation.navigate('Login')} color={'white'}/>
         </View>
     </>
 
