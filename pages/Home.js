@@ -1,12 +1,14 @@
 //import liraries
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Header from '../components/Header';
 
 // create a component
 const Home = () => {
     return (
         <View style={styles.container}>
-            <Text>Home Component</Text>
+            <Header/>
+            <Text>Home Page</Text>
         </View>
     );
 };
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FFF',
+        backgroundColor: 'white',
     },
 });
 
