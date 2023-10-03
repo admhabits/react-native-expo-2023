@@ -1,15 +1,20 @@
 //import liraries
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
+import CommonButton from '../components/Button';
 
 // create a component
-const Home = () => {
+const Home = ({ navigation }) => {
     return (
+    <>
+        {/* <Header /> */}
         <View style={styles.container}>
-            <Header/>
-            <Text>Home Page</Text>
+            <Text>Selamat Datang di React Native Academy</Text>
+            <CommonButton text={'Masuk Akun'} onPress={() => navigation.navigate('Login')}/>
         </View>
+    </>
+
     );
 };
 

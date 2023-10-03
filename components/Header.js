@@ -6,7 +6,7 @@ import { View, Text, StyleSheet, StatusBar } from 'react-native';
 const Header = () => {
     return (
         <View style={styles.container}>
-            <Text>Selamat Datang di React Native Academy</Text>
+            <Text>Header Component</Text>
             <StatusBar style="auto"/>
         </View>
     );

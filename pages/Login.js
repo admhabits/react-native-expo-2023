@@ -1,12 +1,14 @@
 //import liraries
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import CommonButton from '../components/Button';
 
 // create a component
-const Login = () => {
+const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Login Page</Text>
+            <CommonButton text={'Keluar Akun'} onPress={() => navigation.navigate('Home')}/>
         </View>
     );
 };
