@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
 // create a component

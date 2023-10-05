@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
     <>
         {/* <Header /> */}
         <View style={styles.container}>
-            <Text>Selamat Datang di React Native Academy</Text>
+            <Text>Selamat Datang di Jamkrindo Training</Text>
             <ButtonIcon name={'arrow-right'} onPress={() => navigation.navigate('Login')} color={'white'}/>
         </View>
     </>
