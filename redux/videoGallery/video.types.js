@@ -1,0 +1,7 @@
+const videoTypes = {
+  GET_DATA_VIDEO: 'GET_DATA_VIDEO',
+  GET_DATA_VIDEO_SUCCESS: 'GET_DATA_VIDEO_SUCCESS',
+  GET_DATA_VIDEO_FAILED: 'GET_DATA_VIDEO_FAILED',
+};
+
+export default videoTypes;

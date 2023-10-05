@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
-import { ButtonIcon } from '../components/Button';
+import { ButtonIcon } from '../components/Button/Button';
 
 // create a component
 const Home = ({ navigation }) => {

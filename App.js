@@ -1,15 +1,18 @@
-import { StyleSheet } from 'react-native';
-import Routes from './routes';
+import React, { useState } from 'react';
+import Routes from 'routes';
+import { Provider } from 'react-redux';
+import { persistor, store } from './redux/store';
+import SplashScreen from 'react-native-splash-screen';
 
-export default function App() {
-  return <Routes/>
-}
+const App = () => {
+  useState(() => {
+    SplashScreen.hide();
+  }, [])
+  return (
+    <Provider store={store}>
+        <Routes />
+    </Provider>
+  );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
