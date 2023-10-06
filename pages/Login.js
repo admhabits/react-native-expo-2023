@@ -1,7 +1,7 @@
 //import liraries
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import CommonButton from '../components/Button';
+import CommonButton from '../components/shared/Button';
 
 // create a component
 const Login = ({ navigation }) => {

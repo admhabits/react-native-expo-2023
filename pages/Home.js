@@ -1,32 +1,29 @@
 //import liraries
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Header from '../components/Header';
-import { ButtonIcon } from '../components/Button';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { ButtonIcon } from '../components/shared/Button';
+import BaseContainer from '../components/BaseContainer';
+import Header from '../components/shared/Header';
+import { logoHubla, iconSearch } from '../components/configs/Images';
+
 
 // create a component
 const Home = ({ navigation }) => {
     return (
-    <>
-        {/* <Header /> */}
-        <View style={styles.container}>
-            <Text>Selamat Datang di Jamkrindo Training</Text>
-            <ButtonIcon name={'arrow-right'} onPress={() => navigation.navigate('Login')} color={'white'}/>
-        </View>
-    </>
-
+        <>
+            <Header />
+            <Image source={logoHubla} style={{
+                width: 30,
+                height: 31,
+                marginRight: 5,
+            }} />
+            <BaseContainer>
+                <Text>Selamat Datang di Jamkrindo Training</Text>
+                <ButtonIcon name={'arrow-right'} onPress={() => navigation.navigate('Login')} color={'white'} />
+            </BaseContainer>
+        </>
     );
 };
-
-// define your styles
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-    },
-});
 
 //make this component available to the app
 export default Home;
