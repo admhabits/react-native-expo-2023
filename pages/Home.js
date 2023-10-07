@@ -39,7 +39,7 @@ const Home = () => {
           <Text>Footer Page</Text>
           <View style={{ ...styles.floatButton, left: (width - 80) / 2 }}>
             <TouchableOpacity>
-              <Text style={{ color: "white" }}>Button</Text>
+              <Text style={{ color: "white" }}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
