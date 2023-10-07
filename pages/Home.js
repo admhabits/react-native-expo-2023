@@ -3,9 +3,12 @@ import React from "react";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 
 const ContentPage = ({ data }) => {
-  return <Text style={{ padding: 10, marginBottom: 10, }}> ListItem {data + 1}</Text>;
+  return (
+    <Text style={{ padding: 10, marginBottom: 10 }}> ListItem {data + 1}</Text>
+  );
 };
 
 const Home = () => {
@@ -22,7 +25,8 @@ const Home = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View
+        <LinearGradient
+          colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
           style={{
             ...styles.header,
             padding: PaddingLayout,
@@ -31,13 +35,14 @@ const Home = () => {
         >
           <Text>Home Page</Text>
           <Text>Home Page</Text>
+        </LinearGradient>
+        <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
+          <ScrollView style={{ padding: PaddingLayout }}>
+            {components}
+          </ScrollView>
         </View>
-        <View
-          style={{ height: height - CalculateHeight, paddingBottom: 10 }}
-        >
-          <ScrollView style={{ padding: PaddingLayout }}>{components}</ScrollView>
-        </View>
-        <View
+        <LinearGradient
+          colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
           style={{
             ...styles.footer,
             padding: PaddingLayout,
@@ -46,12 +51,15 @@ const Home = () => {
         >
           <Text>Footer Page</Text>
           <Text>Footer Page</Text>
-          <View style={{ ...styles.floatButton, left: (width - 80) / 2 }}>
+          <LinearGradient
+            colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
+            style={{ ...styles.floatButton, left: (width - 80) / 2 }}
+          >
             <TouchableOpacity>
               <Text style={{ color: "white" }}>Sign In</Text>
             </TouchableOpacity>
-          </View>
-        </View>
+          </LinearGradient>
+        </LinearGradient>
         <StatusBar style="dark" backgroundColor="#ffffff" />
       </View>
     </SafeAreaView>
