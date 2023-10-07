@@ -1,14 +1,23 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+const ContentPage = ({ data }) => {
+  return <Text style={{ padding: 10, marginBottom: 10, }}> ListItem {data + 1}</Text>;
+};
 
 const Home = () => {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
   const HeightLayout = 60;
   const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
+  const components = [];
+
+  for (let i = 0; i < 100; i++) {
+    components.push(<ContentPage key={i} data={i} />);
+  }
 
   return (
     <SafeAreaView>
@@ -24,9 +33,9 @@ const Home = () => {
           <Text>Home Page</Text>
         </View>
         <View
-          style={{ height: height - CalculateHeight, padding: PaddingLayout }}
+          style={{ height: height - CalculateHeight, paddingBottom: 10 }}
         >
-          <Text>Content Page</Text>
+          <ScrollView style={{ padding: PaddingLayout }}>{components}</ScrollView>
         </View>
         <View
           style={{
@@ -75,7 +84,7 @@ const styles = StyleSheet.create({
   floatButton: {
     position: "absolute",
     backgroundColor: "blue",
-    borderColor: 'white',
+    borderColor: "white",
     borderWidth: 5,
     padding: 10,
     height: 80,
