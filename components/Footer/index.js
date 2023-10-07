@@ -1,6 +1,7 @@
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import FontAwesome from "react-native-vector-icons/FontAwesome5";
 
 export const FloatingButton = ({ style }) => {
   return (
@@ -9,21 +10,85 @@ export const FloatingButton = ({ style }) => {
       style={style}
     >
       <TouchableOpacity>
-        <Text style={{ color: "white", fontFamily: 'Montserrat', fontSize: 16}}>Login</Text>
+        <FontAwesome name="qrcode" size={30} color="white" />
       </TouchableOpacity>
     </LinearGradient>
   );
 };
 
-export default function Footer({ style, float}) {
+export default function Footer({ style, float }) {
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
       style={{ ...styles.footer, ...style }}
     >
-      <Text>Footer Page</Text>
-      <Text>Footer Page</Text>
-      <FloatingButton style={{  ...styles.floatButton, ...float }} />
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <View
+          style={{
+            flexDirection: "column",
+            width: 75,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FontAwesome name="home" size={20} color="white" />
+          <Text
+            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
+          >
+            Home
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "column",
+            width: 75,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FontAwesome name="school" size={20} color="white" />
+          <Text
+            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
+          >
+            Pendidikan
+          </Text>
+        </View>
+      </View>
+
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
+        <View
+          style={{
+            flexDirection: "column",
+            width: 75,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FontAwesome name="user-graduate" size={20} color="white" />
+          <Text
+            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
+          >
+            Beasiswa
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "column",
+            width: 75,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FontAwesome name="chalkboard" size={20} color="white" />
+          <Text
+            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
+          >
+            Informasi
+          </Text>
+        </View>
+      </View>
+
+      <FloatingButton style={{ ...styles.floatButton, ...float }} />
     </LinearGradient>
   );
 }
