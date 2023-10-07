@@ -9,7 +9,7 @@ export const FloatingButton = ({ style }) => {
       style={style}
     >
       <TouchableOpacity>
-        <Text style={{ color: "white" }}>Sign In</Text>
+        <Text style={{ color: "white", fontFamily: 'Montserrat', fontSize: 16}}>Login</Text>
       </TouchableOpacity>
     </LinearGradient>
   );
