@@ -1,32 +1,51 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home = () => {
-  const { height, width }    = Dimensions.get("window");
-  const PaddingLayout        = 10;
-  const HeightLayout         = 60;
-  const CalculateHeight      = (PaddingLayout + HeightLayout) * 2;
+  const { height, width } = Dimensions.get("window");
+  const PaddingLayout = 10;
+  const HeightLayout = 60;
+  const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
 
   return (
-    <View style={styles.container}>
-      <View style={{ ...styles.header, padding: PaddingLayout, height: HeightLayout }}>
-        <Text>Home Page</Text>
-        <Text>Home Page</Text>
-      </View>
-      <View style={{ height: height - CalculateHeight, padding: PaddingLayout }}>
-        <Text>Content Page</Text>
-      </View>
-      <View style={{ ...styles.footer, padding: PaddingLayout, height: HeightLayout}}>
-        <Text>Footer Page</Text>
-        <Text>Footer Page</Text>
-        <View style={{ ...styles.floatButton, left: (width - 80 ) / 2 }}>
-          <TouchableOpacity>
-            <Text style={{ color: 'white' }}>Button</Text>
-          </TouchableOpacity>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <View
+          style={{
+            ...styles.header,
+            padding: PaddingLayout,
+            height: HeightLayout,
+          }}
+        >
+          <Text>Home Page</Text>
+          <Text>Home Page</Text>
         </View>
+        <View
+          style={{ height: height - CalculateHeight, padding: PaddingLayout }}
+        >
+          <Text>Content Page</Text>
+        </View>
+        <View
+          style={{
+            ...styles.footer,
+            padding: PaddingLayout,
+            height: HeightLayout,
+          }}
+        >
+          <Text>Footer Page</Text>
+          <Text>Footer Page</Text>
+          <View style={{ ...styles.floatButton, left: (width - 80) / 2 }}>
+            <TouchableOpacity>
+              <Text style={{ color: "white" }}>Button</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <StatusBar style="dark" backgroundColor="#ffffff" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -55,14 +74,14 @@ const styles = StyleSheet.create({
   },
   floatButton: {
     position: "absolute",
-    backgroundColor: 'blue',
+    backgroundColor: "blue",
     padding: 10,
     height: 80,
     width: 80,
     bottom: 20,
     borderRadius: 100,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
