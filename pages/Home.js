@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
   floatButton: {
     position: "absolute",
     backgroundColor: "blue",
+    borderColor: 'white',
+    borderWidth: 5,
     padding: 10,
     height: 80,
     width: 80,
