@@ -4,6 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
+import SwiperComponent from "../Swiper";
 
 export default function Layout({ children, statusBar = "blue", navigation }) {
   const { height, width } = Dimensions.get("window");
@@ -13,8 +14,7 @@ export default function Layout({ children, statusBar = "blue", navigation }) {
 
   return (
     <>
-      <SafeAreaView>
-        <View style={styles.container}>
+     <View style={styles.container}>
           <Header
             style={{
               padding: PaddingLayout,
@@ -34,7 +34,6 @@ export default function Layout({ children, statusBar = "blue", navigation }) {
           />
           <StatusBar style="dark" backgroundColor={statusBar} />
         </View>
-      </SafeAreaView>
     </>
   );
 }
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    margin: 0,
+    marginTop: 20,
   },
 
   title: {

@@ -2,6 +2,7 @@ import { Text, StyleSheet } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
 import { ScrollView } from "react-native-gesture-handler";
+import SwiperComponent from "../components/Swiper";
 
 const ContentPage = ({ data }) => {
   return (
@@ -21,7 +22,8 @@ const Home = ({ navigation }) => {
   return (
     <>
       <LayoutScreen statusBar="#FFF" navigation={navigation}>
-        <ScrollView style={{ padding: 10 }}>{components}</ScrollView>
+        <SwiperComponent/>
+        <ScrollView style={{ padding: 10, maxHeight: 380 }}>{components}</ScrollView>
       </LayoutScreen>
     </>
   );

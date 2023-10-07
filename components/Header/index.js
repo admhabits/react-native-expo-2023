@@ -20,7 +20,7 @@ export default function Header({ style }) {
           <FontAwesome
             name={isDarkMode ? "sun" : "moon"}
             size={20}
-            color={isDarkMode ? "#fff" : "rgba(40, 162, 151, 1)"}
+            color={isDarkMode ? "#fff" : "#F0F0F0"}
           />
         </TouchableOpacity>
       </LinearGradient>

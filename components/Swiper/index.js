@@ -10,6 +10,7 @@ const SwiperComponent = () => {
     <ScrollView
       horizontal
       pagingEnabled
+      nestedScrollEnabled
       showsHorizontalScrollIndicator={false}
       style={styles.scrollView}
     >
@@ -21,7 +22,6 @@ const SwiperComponent = () => {
         {/* Your content for the second slide */}
         <Image source={Slide2} style={styles.image}/>
       </View>
-      {/* Add more slides as needed */}
     </ScrollView>
   );
 };
@@ -29,14 +29,16 @@ const SwiperComponent = () => {
 const styles = StyleSheet.create({
   scrollView: {
     width: width, // Set the width of the scrollView to screen width
+    maxHeight: 200,
+    backgroundColor: 'white',
   },
   slide: {
     width: width, // Each slide occupies the full screen width
-    // Additional styling for your slides
   },
   image: {
-    width: '100%',
+    width: width,
     height: 200,
+    objectFit: 'cover',
   }
 });
 
