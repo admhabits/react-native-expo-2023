@@ -11,7 +11,7 @@ const ContentPage = ({ data }) => {
   );
 };
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const components = [];
 
   for (let i = 0; i < 100; i++) {
@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <LayoutScreen statusBar="#FFF">
+      <LayoutScreen statusBar="#FFF" navigation={navigation}>
         <ScrollView style={{ padding: 10 }}>{components}</ScrollView>
       </LayoutScreen>
     </>

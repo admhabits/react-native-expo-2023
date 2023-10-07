@@ -3,21 +3,30 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 
-export const ButtonIcon = ({ name, size, color, textSize, title }) => {
+export const ButtonIcon = ({ name, size, color, textSize, title, onPress }) => {
   return (
-    <View
-      style={{
-        flexDirection: "column",
-        width: 75,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <FontAwesome name={name} size={size} color={color} />
-      <Text style={{ fontSize: textSize, fontFamily: "Montserrat", color, marginTop: 5 }}>
-        {title}
-      </Text>
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View
+        style={{
+          flexDirection: "column",
+          width: 75,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <FontAwesome name={name} size={size} color={color} />
+        <Text
+          style={{
+            fontSize: textSize,
+            fontFamily: "Montserrat",
+            color,
+            marginTop: 5,
+          }}
+        >
+          {title}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -34,7 +43,7 @@ export const FloatingButton = ({ style }) => {
   );
 };
 
-export default function Footer({ style, float }) {
+export default function Footer({ style, float, navigation}) {
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
@@ -47,6 +56,7 @@ export default function Footer({ style, float }) {
           textSize={12}
           title="home"
           color="white"
+          onPress={() => navigation.navigate('Home')}
         />
         <ButtonIcon
           name="school"
@@ -54,6 +64,7 @@ export default function Footer({ style, float }) {
           textSize={12}
           title="Pendidikan"
           color="white"
+          onPress={() => navigation.navigate('Home')}
         />
       </View>
 
@@ -64,6 +75,7 @@ export default function Footer({ style, float }) {
           textSize={12}
           title="Beasiswa"
           color="white"
+          onPress={() => navigation.navigate('Home')}
         />
         <ButtonIcon
           name="chalkboard"
@@ -71,6 +83,7 @@ export default function Footer({ style, float }) {
           textSize={12}
           title="Informasi"
           color="white"
+          onPress={() => navigation.navigate('Home')}
         />
       </View>
 

@@ -5,7 +5,7 @@ import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Layout({ children, statusBar = "blue" }) {
+export default function Layout({ children, statusBar = "blue", navigation }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
   const HeightLayout = 60;
@@ -29,6 +29,7 @@ export default function Layout({ children, statusBar = "blue" }) {
               padding: PaddingLayout,
               height: HeightLayout,
             }}
+            navigation={navigation}
             float={{ left: (width - 80) / 2 }}
           />
           <StatusBar style="dark" backgroundColor={statusBar} />
