@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { View, ScrollView, Dimensions, StyleSheet, Image } from 'react-native';
 
 import { Slide1, Slide2 } from "../configs/Images";
@@ -6,12 +6,27 @@ import { Slide1, Slide2 } from "../configs/Images";
 const { width } = Dimensions.get('window');
 
 const SwiperComponent = () => {
+    const scrollViewRef = useRef();
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+          if (scrollViewRef.current) {
+            // Calculate the next page index based on your logic
+            const nextPageIndex = 1; // Example: scroll to the second page
+            const xOffset = nextPageIndex * width;
+            scrollViewRef.current.scrollTo({ x: xOffset, animated: true });
+          }
+        }, 5000); // Auto-scroll every 5 seconds (adjust the interval as needed)
+    
+        return () => clearInterval(interval); // Clean up interval on component unmount
+      }, []);
   return (
     <ScrollView
       horizontal
       pagingEnabled
       nestedScrollEnabled
       showsHorizontalScrollIndicator={false}
+      ref={scrollViewRef}
       style={styles.scrollView}
     >
       {/* Content of each swiper slide */}
