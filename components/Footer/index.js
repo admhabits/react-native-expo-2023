@@ -3,6 +3,24 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 
+export const ButtonIcon = ({ name, size, color, textSize, title }) => {
+  return (
+    <View
+      style={{
+        flexDirection: "column",
+        width: 75,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <FontAwesome name={name} size={size} color={color} />
+      <Text style={{ fontSize: textSize, fontFamily: "Montserrat", color, marginTop: 5 }}>
+        {title}
+      </Text>
+    </View>
+  );
+};
+
 export const FloatingButton = ({ style }) => {
   return (
     <LinearGradient
@@ -23,69 +41,37 @@ export default function Footer({ style, float }) {
       style={{ ...styles.footer, ...style }}
     >
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        <View
-          style={{
-            flexDirection: "column",
-            width: 75,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <FontAwesome name="home" size={20} color="white" />
-          <Text
-            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
-          >
-            Home
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: "column",
-            width: 75,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <FontAwesome name="school" size={20} color="white" />
-          <Text
-            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
-          >
-            Pendidikan
-          </Text>
-        </View>
+        <ButtonIcon
+          name="home"
+          size={20}
+          textSize={12}
+          title="home"
+          color="white"
+        />
+        <ButtonIcon
+          name="school"
+          size={20}
+          textSize={12}
+          title="Pendidikan"
+          color="white"
+        />
       </View>
 
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        <View
-          style={{
-            flexDirection: "column",
-            width: 75,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <FontAwesome name="user-graduate" size={20} color="white" />
-          <Text
-            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
-          >
-            Beasiswa
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: "column",
-            width: 75,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <FontAwesome name="chalkboard" size={20} color="white" />
-          <Text
-            style={{ fontSize: 12, fontFamily: "Montserrat", color: "white" }}
-          >
-            Informasi
-          </Text>
-        </View>
+        <ButtonIcon
+          name="user-graduate"
+          size={20}
+          textSize={12}
+          title="Beasiswa"
+          color="white"
+        />
+        <ButtonIcon
+          name="chalkboard"
+          size={20}
+          textSize={12}
+          title="Informasi"
+          color="white"
+        />
       </View>
 
       <FloatingButton style={{ ...styles.floatButton, ...float }} />
