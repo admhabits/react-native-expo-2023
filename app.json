@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo-djpl.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sihubla.mobile.app"
     },
     "web": {
       "favicon": "./assets/icons/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "27bea793-0718-4073-a948-3ae37b3aa3c4"
+      }
     }
   }
 }
