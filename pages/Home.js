@@ -14,7 +14,7 @@ const Home = () => {
         <Text>Home Page</Text>
         <Text>Home Page</Text>
       </View>
-      <View style={{ height: height - CalculateHeight }}>
+      <View style={{ height: height - CalculateHeight, padding: PaddingLayout }}>
         <Text>Content Page</Text>
       </View>
       <View style={{ ...styles.footer, padding: PaddingLayout, height: HeightLayout}}>
