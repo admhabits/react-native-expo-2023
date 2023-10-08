@@ -5,7 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import SwiperComponent from "../components/Swiper";
 import SwiperLib from "../components/Swiper/SwiperLib";
 import { LinearBackground } from "../components/configs/LinearBackground";
-import { primary, secondary } from "../components/configs/Colors";
+import { darkPrimary, primary, secondary } from "../components/configs/Colors";
 
 const SwiperHome = () => {
   const BackgrounSwiperHeight = 180;
@@ -43,7 +43,7 @@ const SwiperHome = () => {
 
 const Home = ({ navigation }) => {
   return (
-    <LayoutScreen statusBar="#FFF" navigation={navigation}>
+    <LayoutScreen statusBar={darkPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <View

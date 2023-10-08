@@ -32,7 +32,7 @@ export default function Layout({ children, statusBar = "blue", navigation }) {
             navigation={navigation}
             float={{ left: (width - 80) / 2 }}
           />
-          <StatusBar style="dark" backgroundColor={statusBar} />
+          <StatusBar style="light" backgroundColor={statusBar} />
         </View>
     </>
   );
