@@ -1,9 +1,12 @@
-import { Text, View, StyleSheet, TextInput, ScrollView } from "react-native";
+import { Text, View, StyleSheet, TextInput, ScrollView, Dimensions } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
 import SwiperLib from "../components/Swiper/SwiperLib";
 import { LinearBackground } from "../components/configs/LinearBackground";
 import { darkPrimary, primary, secondary } from "../components/configs/Colors";
+
+const PaddingLayout    = 20;
+const ThreeColumnWidth = Dimensions.get('window').width / 2.5 - PaddingLayout;
 
 const SwiperHome = () => {
   const BackgrounSwiperHeight = 180;
@@ -40,13 +43,23 @@ const SwiperHome = () => {
 };
 
 const Home = ({ navigation }) => {
+
   return (
     <LayoutScreen statusBar={darkPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <View
-          style={{ height: 200, backgroundColor: "white", marginTop: 15 }}
-        ></View>
+          style={{ height: 200, backgroundColor: "white", marginTop: 15, padding: 20 }}
+        >
+          <Text style={{ fontFamily: 'Roboto', textTransform: "uppercase", fontSize: 16 }}>Layanan</Text>
+          <ScrollView horizontal>
+            <View style={{paddingTop: 20, gap: 20, flexDirection: 'row' }}>
+              <View style={styles.cardHome}></View>
+              <View style={styles.cardHome}></View>
+              <View style={styles.cardHome}></View>
+            </View>
+          </ScrollView>
+        </View>
       </ScrollView>
     </LayoutScreen>
   );
@@ -66,6 +79,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginHorizontal: 30,
     top: 90
+  },
+  cardHome: {
+    height: 100, 
+    width: ThreeColumnWidth, 
+    backgroundColor: '#F0F0F0', 
+    flex: 1,
+    borderRadius: 8
   }
 });
 
