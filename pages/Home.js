@@ -27,7 +27,7 @@ const SwiperHome = () => {
   return (
     <>
       <LinearBackground
-        colors={[toscaColor,  primary]}
+        colors={[toscaColor, primary]}
         style={{
           backgroundColor: "darkgreen",
           opacity: 0.8,
@@ -40,9 +40,23 @@ const SwiperHome = () => {
           height: BackgrounSwiperHeight,
         }}
       >
-        <View style={{ flexDirection: 'column', justifyContent: 'center'}}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "start",
+            alignItems: "center",
+            top: 75,
+            marginHorizontal: 30,
+            gap: 3,
+            backgroundColor: 'white',
+            padding: 10,
+            borderRadius: 15,
+            borderColor: "#F0F0F0",
+            borderWidth: 2,
+          }}
+        >
+          <FontAwesome name="search" size={30} color={"#808080"} />
           <TextInput style={styles.inputCari} placeholder="Search"></TextInput>
-          <FontAwesome name="search" size={30} color={"#808080"} style={{ top: 34, left: 42}}/>
         </View>
       </View>
       <View
@@ -107,17 +121,13 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
   },
   inputCari: {
-    height: 50,
-    borderRadius: 15,
-    borderColor: "#F0F0F0",
-    borderWidth: 2,
-    padding: 15,
-    paddingHorizontal: 50,
+    height: 30,
+    padding: 8,
+    width: 300,
     fontFamily: "Montserrat",
     position: "relative",
     fontSize: 17,
-    marginHorizontal: 30,
-    top: 75,
+    zIndex: 10,
     backgroundColor: "white",
   },
   cardHome: {
