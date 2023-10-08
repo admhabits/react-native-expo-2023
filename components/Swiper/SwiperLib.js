@@ -13,15 +13,8 @@ const SwiperLib = () => {
       autoplayTimeout={3} // Set the auto-scrolling interval in seconds
       showsPagination={true} // Show pagination dots
     >
-      <View style={styles.slide}>
-        <Image source={Slide1} style={styles.image} />
-      </View>
-      <View style={styles.slide}>
-        <Image source={Slide2} style={styles.image} />
-      </View>
-      <View style={styles.slide}>
-        <Text>Slide 3</Text>
-      </View>
+      <Image source={Slide1} style={styles.slide} />
+      <Image source={Slide2} style={styles.slide} />
       {/* Add more slides as needed */}
     </Swiper>
   );
@@ -33,13 +26,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "lightblue",
-    maxHeight: 200,
+    maxHeight: 250,
+    width: width - 40,
+    borderRadius: 20,
+    objectFit: 'contain'
   },
-  image: {
-    width: width,
-    height: 200,
-    objectFit: 'cover',
-  }
 });
 
 export default SwiperLib;

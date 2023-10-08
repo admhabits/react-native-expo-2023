@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
 import { ScrollView } from "react-native-gesture-handler";
@@ -23,8 +23,9 @@ const Home = ({ navigation }) => {
   return (
     <>
       <LayoutScreen statusBar="#FFF" navigation={navigation}>
-        <SwiperLib/>
-        <ScrollView style={{ padding: 10, maxHeight: 380 }}>{components}</ScrollView>
+        <View style={{ height: 200, padding: 20 }}>
+          <SwiperLib />
+        </View>
       </LayoutScreen>
     </>
   );
