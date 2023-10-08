@@ -7,6 +7,7 @@ import { primary, secondary } from "../configs/Colors";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLocal, setIsLocal] = useState('id')
   return (
     <>
       <LinearBackground
@@ -18,11 +19,20 @@ export default function Header({ style }) {
           <Text style={styles.title}>KEMENTRIAN PERHUBUNGAN LAUT</Text>
         </View>
         <TouchableOpacity onPress={() => setIsDarkMode(!isDarkMode)}>
-          <FontAwesome
+          {/* <FontAwesome
             name={isDarkMode ? "sun" : "moon"}
             size={20}
             color={isDarkMode ? "#fff" : "#F0F0F0"}
-          />
+          /> */}
+          <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 5 }}>
+            <TouchableOpacity onPress={() => setIsLocal('id')}>
+              <Text style={{ ...styles.localizationText, color: isLocal == 'id' ? 'white' : 'black'}}>ID</Text>
+            </TouchableOpacity>
+            <Text style={styles.localizationText}>/</Text>
+            <TouchableOpacity onPress={() => setIsLocal('en')}>
+              <Text style={{ ...styles.localizationText, color: isLocal == 'en' ? 'white' : 'black'}}>EN</Text>
+            </TouchableOpacity>
+          </View>
         </TouchableOpacity>
       </LinearBackground>
     </>
@@ -52,5 +62,10 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: "Montserrat",
+    fontSize: 16
   },
+  localizationText: {
+    fontFamily: "Montserrat",
+    fontSize: 18,
+  }
 });
