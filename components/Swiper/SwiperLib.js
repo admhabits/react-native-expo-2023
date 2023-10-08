@@ -1,9 +1,16 @@
 import React from "react";
-import { ScrollView, View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+} from "react-native";
 import Swiper from "react-native-swiper";
 import { Slide1, Slide2 } from "../configs/Images";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 const SwiperLib = () => {
   return (
@@ -13,9 +20,12 @@ const SwiperLib = () => {
       autoplayTimeout={3} // Set the auto-scrolling interval in seconds
       showsPagination={true} // Show pagination dots
     >
-      <Image source={Slide1} style={styles.slide} />
-      <Image source={Slide2} style={styles.slide} />
-      {/* Add more slides as needed */}
+      <View style={{ ...styles.slide, position: "relative" }}>
+        <Image source={Slide1} style={styles.slide} />
+      </View>
+      <View style={{ ...styles.slide, position: "relative" }}>
+        <Image source={Slide2} style={styles.slide} />
+      </View>
     </Swiper>
   );
 };
@@ -29,7 +39,7 @@ const styles = StyleSheet.create({
     maxHeight: 250,
     width: width - 40,
     borderRadius: 20,
-    objectFit: 'contain'
+    objectFit: "contain",
   },
 });
 
