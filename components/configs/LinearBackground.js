@@ -2,9 +2,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { primary, secondary } from "./Colors";
 
-export const LinearBackground = ({ children, style }) => {
+export const LinearBackground = ({ children, style, colors = [secondary, primary]}) => {
   return (
-    <LinearGradient colors={[secondary, primary]} style={{ ...style }}>
+    <LinearGradient colors={colors} style={{ ...style }}>
       {children}
     </LinearGradient>
   );

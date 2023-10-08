@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { logoHubla, iconSearch } from "../configs/Images";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { LinearBackground } from "../configs/LinearBackground";
+import { primary, secondary } from "../configs/Colors";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <>
       <LinearBackground
+        colors={[primary, secondary]}
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>

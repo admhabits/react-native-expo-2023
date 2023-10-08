@@ -5,34 +5,48 @@ import { ScrollView } from "react-native-gesture-handler";
 import SwiperComponent from "../components/Swiper";
 import SwiperLib from "../components/Swiper/SwiperLib";
 import { LinearBackground } from "../components/configs/LinearBackground";
+import { primary, secondary } from "../components/configs/Colors";
 
-const Home = ({ navigation }) => {
+const SwiperHome = () => {
   const BackgrounSwiperHeight = 160;
   return (
+    <>
+      <LinearBackground
+        colors={[secondary, primary]}
+        style={{
+          backgroundColor: "darkgreen",
+          opacity: 0.7,
+          height: BackgrounSwiperHeight,
+        }}
+      ></LinearBackground>
+      <View
+        style={{
+          backgroundColor: "white",
+          height: BackgrounSwiperHeight,
+        }}
+      ></View>
+      <View
+        style={{
+          height: 200,
+          padding: 20,
+          marginTop: 30,
+          position: "absolute",
+        }}
+      >
+        <SwiperLib />
+      </View>
+    </>
+  );
+};
+
+const Home = ({ navigation }) => {
+  return (
     <LayoutScreen statusBar="#FFF" navigation={navigation}>
-      <ScrollView style={{ marginTop: -1, }}>
-        <LinearBackground
-          style={{
-            backgroundColor: "darkgreen",
-            height: BackgrounSwiperHeight,
-          }}
-        ></LinearBackground>
+      <ScrollView style={{ marginTop: -1 }}>
+        <SwiperHome />
         <View
-          style={{
-            backgroundColor: "white",
-            height: BackgrounSwiperHeight,
-          }}
+          style={{ height: 200, backgroundColor: "white", marginTop: 15 }}
         ></View>
-        <View
-          style={{
-            height: 200,
-            padding: 20,
-            marginTop: 30,
-            position: "absolute",
-          }}
-        >
-          <SwiperLib />
-        </View>
       </ScrollView>
     </LayoutScreen>
   );
