@@ -12,7 +12,7 @@ const SwiperHome = () => {
   return (
     <>
       <LinearBackground
-        colors={[secondary, primary]}
+        colors={[secondary, secondary]}
         style={{
           backgroundColor: "darkgreen",
           opacity: 0.7,

@@ -10,7 +10,7 @@ export default function Header({ style }) {
   return (
     <>
       <LinearBackground
-        colors={[primary, secondary]}
+        colors={[secondary, primary]}
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>
