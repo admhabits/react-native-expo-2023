@@ -3,7 +3,7 @@ import React from "react";
 import LayoutScreen from "../components/Layout";
 import SwiperLib from "../components/Swiper/SwiperLib";
 import { LinearBackground } from "../components/configs/LinearBackground";
-import { darkPrimary, primary, secondary } from "../components/configs/Colors";
+import { darkPrimary, textPrimary, secondary } from "../components/configs/Colors";
 
 const PaddingLayout    = 20;
 const ThreeColumnWidth = Dimensions.get('window').width / 2.5 - PaddingLayout;
@@ -51,7 +51,7 @@ const Home = ({ navigation }) => {
         <View
           style={{ height: 200, backgroundColor: "white", marginTop: 15, padding: 20 }}
         >
-          <Text style={{ fontFamily: 'Roboto', textTransform: "uppercase", fontSize: 16 }}>Layanan</Text>
+          <Text style={styles.textHeading}>Unit Kerja</Text>
           <ScrollView horizontal>
             <View style={{paddingTop: 20, gap: 20, flexDirection: 'row' }}>
               <View style={styles.cardHome}></View>
@@ -81,12 +81,13 @@ const styles = StyleSheet.create({
     top: 90
   },
   cardHome: {
-    height: 100, 
+    height: 110, 
     width: ThreeColumnWidth, 
     backgroundColor: '#F0F0F0', 
     flex: 1,
     borderRadius: 8
-  }
+  },
+  textHeading: { fontFamily: 'Montserrat', textTransform: "capitalize", fontSize: 20, fontWeight: 'bold', color: textPrimary },
 });
 
 export default Home;

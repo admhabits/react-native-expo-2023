@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { logoHubla, iconSearch } from "../configs/Images";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
 import { LinearBackground } from "../configs/LinearBackground";
-import { primary, secondary } from "../configs/Colors";
+import { primary, secondary, textPrimary } from "../configs/Colors";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -26,11 +26,11 @@ export default function Header({ style }) {
           /> */}
           <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 5 }}>
             <TouchableOpacity onPress={() => setIsLocal('id')}>
-              <Text style={{ ...styles.localizationText, color: isLocal == 'id' ? 'white' : 'black'}}>ID</Text>
+              <Text style={{ ...styles.localizationText, color: isLocal == 'id' ? 'white' : textPrimary}}>ID</Text>
             </TouchableOpacity>
             <Text style={styles.localizationText}>/</Text>
             <TouchableOpacity onPress={() => setIsLocal('en')}>
-              <Text style={{ ...styles.localizationText, color: isLocal == 'en' ? 'white' : 'black'}}>EN</Text>
+              <Text style={{ ...styles.localizationText, color: isLocal == 'en' ? 'white' : textPrimary}}>EN</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -62,10 +62,12 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: "Montserrat",
-    fontSize: 16
+    fontSize: 16,
+    color: textPrimary
   },
   localizationText: {
     fontFamily: "Montserrat",
     fontSize: 18,
+    color: textPrimary,
   }
 });
