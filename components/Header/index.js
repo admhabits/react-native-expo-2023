@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { logoHubla, iconSearch } from "../configs/Images";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
 import { LinearBackground } from "../configs/LinearBackground";
-import { primary, secondary, textPrimary } from "../configs/Colors";
+import { primary, secondary, textPrimary, toscaColor } from "../configs/Colors";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -11,7 +11,7 @@ export default function Header({ style }) {
   return (
     <>
       <LinearBackground
-        colors={[secondary, primary]}
+        colors={[toscaColor, secondary]}
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>

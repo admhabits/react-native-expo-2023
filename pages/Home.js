@@ -16,6 +16,7 @@ import {
   textPrimary,
   secondary,
   toscaColor,
+  primary,
 } from "../components/configs/Colors";
 
 const PaddingLayout = 20;
@@ -26,7 +27,7 @@ const SwiperHome = () => {
   return (
     <>
       <LinearBackground
-        colors={["white", toscaColor]}
+        colors={[toscaColor,  primary]}
         style={{
           backgroundColor: "darkgreen",
           opacity: 0.8,
@@ -82,7 +83,7 @@ const UnitKerja = () => {
 
 const Home = ({ navigation }) => {
   return (
-    <LayoutScreen statusBar={darkPrimary} navigation={navigation}>
+    <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <View

@@ -3,8 +3,9 @@ import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
+import { textPrimary } from "../configs/Colors";
 
-export default function Layout({ children, statusBar = "blue", navigation }) {
+export default function Layout({ children, statusBar = textPrimary, navigation }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
   const HeightLayout = 60;
