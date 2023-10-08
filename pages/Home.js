@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
 import { ScrollView } from "react-native-gesture-handler";
@@ -8,7 +8,7 @@ import { LinearBackground } from "../components/configs/LinearBackground";
 import { primary, secondary } from "../components/configs/Colors";
 
 const SwiperHome = () => {
-  const BackgrounSwiperHeight = 160;
+  const BackgrounSwiperHeight = 180;
   return (
     <>
       <LinearBackground
@@ -24,12 +24,14 @@ const SwiperHome = () => {
           backgroundColor: "white",
           height: BackgrounSwiperHeight,
         }}
-      ></View>
+      >
+        <TextInput style={styles.inputCari} placeholder="Cari..."></TextInput>
+      </View>
       <View
         style={{
           height: 200,
           padding: 20,
-          marginTop: 30,
+          marginTop: 50,
           position: "absolute",
         }}
       >
@@ -56,6 +58,17 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "Montserrat",
   },
+  inputCari:{
+    height: 50,
+    borderRadius: 15,
+    borderColor: '#F0F0F0',
+    borderWidth: 2,
+    padding: 15,
+    fontFamily: 'Montserrat',
+    fontSize: 14,
+    marginHorizontal: 30,
+    top: 90
+  }
 });
 
 export default Home;
