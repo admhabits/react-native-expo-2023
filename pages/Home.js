@@ -4,30 +4,37 @@ import LayoutScreen from "../components/Layout";
 import { ScrollView } from "react-native-gesture-handler";
 import SwiperComponent from "../components/Swiper";
 import SwiperLib from "../components/Swiper/SwiperLib";
-
-const ContentPage = ({ data }) => {
-  return (
-    <Text style={{ padding: 10, marginBottom: 10, ...styles.title }}>
-      ListItem {data + 1}
-    </Text>
-  );
-};
+import { LinearBackground } from "../components/configs/LinearBackground";
 
 const Home = ({ navigation }) => {
-  const components = [];
-
-  for (let i = 0; i < 100; i++) {
-    components.push(<ContentPage key={i} data={i} />);
-  }
-
+  const BackgrounSwiperHeight = 160;
   return (
-    <>
-      <LayoutScreen statusBar="#FFF" navigation={navigation}>
-        <View style={{ height: 200, padding: 20 }}>
+    <LayoutScreen statusBar="#FFF" navigation={navigation}>
+      <ScrollView style={{ marginTop: -1, }}>
+        <LinearBackground
+          style={{
+            backgroundColor: "darkgreen",
+            height: BackgrounSwiperHeight,
+          }}
+        ></LinearBackground>
+        <View
+          style={{
+            backgroundColor: "white",
+            height: BackgrounSwiperHeight,
+          }}
+        ></View>
+        <View
+          style={{
+            height: 200,
+            padding: 20,
+            marginTop: 30,
+            position: "absolute",
+          }}
+        >
           <SwiperLib />
         </View>
-      </LayoutScreen>
-    </>
+      </ScrollView>
+    </LayoutScreen>
   );
 };
 

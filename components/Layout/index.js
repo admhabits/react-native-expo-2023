@@ -41,7 +41,7 @@ export default function Layout({ children, statusBar = "blue", navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#F0F0F0",
     marginTop: 20,
   },
 

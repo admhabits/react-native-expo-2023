@@ -19,9 +19,10 @@ const SwiperLib = () => {
       autoplay={true} // Enable auto-scrolling
       autoplayTimeout={3} // Set the auto-scrolling interval in seconds
       showsPagination={true} // Show pagination dots
+      style={styles.swiper}
     >
       <View style={{ ...styles.slide, position: "relative" }}>
-        <Image source={Slide1} style={styles.slide} />
+        <Image source={Slide1} style={{ ...styles.slide }} />
       </View>
       <View style={{ ...styles.slide, position: "relative" }}>
         <Image source={Slide2} style={styles.slide} />
@@ -31,15 +32,19 @@ const SwiperLib = () => {
 };
 
 const styles = StyleSheet.create({
+  swiper: {
+    marginTop: 0,
+  },
   slide: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "lightblue",
     maxHeight: 250,
-    width: width - 40,
+    width: width - 60,
     borderRadius: 20,
     objectFit: "contain",
+    marginHorizontal: 10,
   },
 });
 

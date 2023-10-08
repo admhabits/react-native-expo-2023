@@ -1,15 +1,14 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
-import { LinearGradient } from "expo-linear-gradient";
 import { logoHubla, iconSearch } from "../configs/Images";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
+import { LinearBackground } from "../configs/LinearBackground";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <>
-      <LinearGradient
-        colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
+      <LinearBackground
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>
@@ -23,7 +22,7 @@ export default function Header({ style }) {
             color={isDarkMode ? "#fff" : "#F0F0F0"}
           />
         </TouchableOpacity>
-      </LinearGradient>
+      </LinearBackground>
     </>
   );
 }
