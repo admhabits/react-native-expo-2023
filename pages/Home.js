@@ -3,7 +3,7 @@ import React from "react";
 import LayoutScreen from "../components/Layout";
 import SwiperLib from "../components/Swiper/SwiperLib";
 import { LinearBackground } from "../components/configs/LinearBackground";
-import { darkPrimary, textPrimary, secondary } from "../components/configs/Colors";
+import { darkPrimary, textPrimary, secondary, toscaColor } from "../components/configs/Colors";
 
 const PaddingLayout    = 20;
 const ThreeColumnWidth = Dimensions.get('window').width / 2.5 - PaddingLayout;
@@ -13,10 +13,10 @@ const SwiperHome = () => {
   return (
     <>
       <LinearBackground
-        colors={[secondary, secondary]}
+        colors={['white', toscaColor]}
         style={{
           backgroundColor: "darkgreen",
-          opacity: 0.7,
+          opacity: 0.8,
           height: BackgrounSwiperHeight,
         }}
       ></LinearBackground>
