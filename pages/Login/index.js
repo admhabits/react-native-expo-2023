@@ -1,10 +1,31 @@
 //import liraries
 import { toscaColor } from "~/components/configs/Colors";
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, BackHandler, Alert } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  BackHandler,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { loginUser } from "~/stores/slices/AuthSlice";
 
 // create a component
 const Login = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
+
+  const LoginHandler = () => {
+    dispatch(
+      loginUser({
+        username: "@alamhafidz",
+      })
+    );
+  };
+
   useEffect(() => {
     const backAction = () => {
       Alert.alert("User Confirmation", "Kamu yakin ingin keluar aplikasi ?", [
@@ -20,11 +41,30 @@ const Login = () => {
     );
 
     return () => backHandler.remove(); // Cleanup the event listener on component unmount
-  }, []); // Empty dependency array ensures the effect runs once after initial render
+  }, []);
+
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigation.navigate("Home");
+    }
+  }, [isAuthenticated]);
 
   return (
     <View style={styles.container}>
       <Text>Login Page</Text>
+      <TouchableOpacity onPress={() => LoginHandler()}>
+        <Text
+          style={{
+            color: "white",
+            padding: 10,
+            margin: 10,
+            backgroundColor: "orange",
+          }}
+        >
+          Login App
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

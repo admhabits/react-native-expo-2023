@@ -1,15 +1,26 @@
 import { View, Text, Dimensions, StyleSheet } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
 import { textPrimary } from "../configs/Colors";
+import { useSelector } from "react-redux";
 
 export default function Layout({ children, statusBar = textPrimary, navigation }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
   const HeightLayout = 60;
   const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
+  
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigation.navigate("Home");
+    } else {
+      navigation.navigate("Login");
+    }
+  });
 
   return (
     <>

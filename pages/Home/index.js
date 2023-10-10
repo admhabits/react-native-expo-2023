@@ -38,6 +38,8 @@ const UnitKerja = () => {
 
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
+  const username = useSelector((state) => state.auth.user?.username);
+  console.log("\nUSERNAME OF USER : ", username);
 
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
@@ -54,7 +56,7 @@ const Home = ({ navigation }) => {
           }}
         >
           <TouchableOpacity onPress={() => dispatch(incrementByAmount(5))}>
-            <Text>Tambah</Text>
+            <Text>Hello {username}</Text>
           </TouchableOpacity>
         </View>
         <UnitKerja />
