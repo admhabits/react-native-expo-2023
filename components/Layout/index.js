@@ -4,18 +4,35 @@ import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
 import { textPrimary } from "../configs/Colors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loadState } from "~/stores/saved/AsyncStorage";
+import { updateRememberMe } from "~/stores/slices/AuthSlice";
 
-export default function Layout({ children, statusBar = textPrimary, navigation }) {
+export default function Layout({
+  children,
+  statusBar = textPrimary,
+  navigation,
+}) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
   const HeightLayout = 60;
   const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const auth            = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
 
   console.log(auth);
+
+  useEffect(() => {
+    async function fetchLocalStorage() {
+      const initialState = await loadState();
+      console.log("==== isRememberMe ? :", initialState.rememberMe, "=====");
+      if (initialState.rememberMe) {
+        navigation.navigate("Home");
+      }
+    }
+    fetchLocalStorage();
+  }, []);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -23,30 +40,30 @@ export default function Layout({ children, statusBar = textPrimary, navigation }
     } else {
       navigation.navigate("Login");
     }
-  });
+  }, [isAuthenticated]);
 
   return (
     <>
-     <View style={styles.container}>
-          <Header
-            style={{
-              padding: PaddingLayout,
-              height: HeightLayout,
-            }}
-          />
-          <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
-            {children}
-          </View>
-          <Footer
-            style={{
-              padding: PaddingLayout,
-              height: HeightLayout,
-            }}
-            navigation={navigation}
-            float={{ left: (width - 80) / 2 }}
-          />
-          <StatusBar style="light" backgroundColor={statusBar} />
+      <View style={styles.container}>
+        <Header
+          style={{
+            padding: PaddingLayout,
+            height: HeightLayout,
+          }}
+        />
+        <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
+          {children}
         </View>
+        <Footer
+          style={{
+            padding: PaddingLayout,
+            height: HeightLayout,
+          }}
+          navigation={navigation}
+          float={{ left: (width - 80) / 2 }}
+        />
+        <StatusBar style="light" backgroundColor={statusBar} />
+      </View>
     </>
   );
 }

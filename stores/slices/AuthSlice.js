@@ -21,10 +21,13 @@ const authSlice = createSlice({
     toggleRememberMe: (state) => {
       state.rememberMe = !state.rememberMe;
     },
+    updateRememberMe: (state) => {
+      state.rememberMe = state.rememberMe;
+    },
   },
 });
 
-export const { loginUser, logoutUser, toggleRememberMe } = authSlice.actions;
+export const { loginUser, logoutUser, toggleRememberMe, updateRememberMe } = authSlice.actions;
 export const selectUser = (state) => state.auth.user;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 export const selectRememberMe = (state) => state.auth.rememberMe;

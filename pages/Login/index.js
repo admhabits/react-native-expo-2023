@@ -12,11 +12,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { loginUser } from "~/stores/slices/AuthSlice";
+import { toggleRememberMe } from "~/stores/slices/AuthSlice";
+import { saveState } from "~/stores/saved/AsyncStorage";
 
 // create a component
 const Login = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
 
   const LoginHandler = () => {
     dispatch(
@@ -24,6 +27,10 @@ const Login = () => {
         username: "@alamhafidz",
       })
     );
+    if (true) { //Ketika checked RememberMe
+      dispatch(toggleRememberMe());
+    }
+    saveState(auth);
   };
 
   useEffect(() => {
