@@ -1,4 +1,5 @@
 //import liraries
+import { toscaColor } from "~/components/configs/Colors";
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, BackHandler, Alert } from "react-native";
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#2c3e50",
+    backgroundColor: toscaColor,
   },
 });
 
