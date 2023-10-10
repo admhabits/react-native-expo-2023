@@ -4,6 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start --tunnel",
+    "start:reset": "expo start --reset-cache",
     "android": "expo run:android",
     "build:sample": "eas build -p android --profile sample",
     "doctor": "npx expo-doctor",
