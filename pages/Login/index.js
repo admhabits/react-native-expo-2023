@@ -6,10 +6,6 @@ import { View, Text, StyleSheet, BackHandler, Alert } from "react-native";
 const Login = () => {
   useEffect(() => {
     const backAction = () => {
-      // Handle the back button press
-      // Return true to prevent default back navigation
-      // Return false to allow default back navigation
-      // For example, to confirm exit on back press:
       Alert.alert("User Confirmation", "Kamu yakin ingin keluar aplikasi ?", [
         { text: "Batal", onPress: () => false, style: "cancel" },
         { text: "Ya", onPress: () => BackHandler.exitApp() },
