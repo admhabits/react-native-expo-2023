@@ -38,14 +38,7 @@ const UnitKerja = () => {
 
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigation.navigate("Login");
-    }
-  }, [isAuthenticated]);
-  
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
