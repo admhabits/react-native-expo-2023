@@ -11,8 +11,11 @@ export default function Layout({ children, statusBar = textPrimary, navigation }
   const PaddingLayout = 10;
   const HeightLayout = 60;
   const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
-  
+
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const auth            = useSelector((state) => state.auth);
+
+  console.log(auth);
 
   useEffect(() => {
     if (isAuthenticated) {
