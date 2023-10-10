@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Home from "~/pages/Home";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "~pages/Login";
+import Informasi from "~/pages/informasi";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,11 @@ const StackScreen = () => {
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{ headerShown: false }}
+      />
+       <Stack.Screen
+        name="Informasi"
+        component={Informasi}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

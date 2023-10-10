@@ -83,7 +83,7 @@ export default function Footer({ style, float, navigation}) {
           textSize={12}
           title="Informasi"
           color="white"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Informasi')}
         />
       </View>
 
