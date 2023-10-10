@@ -6,6 +6,7 @@ import {
   ScrollView,
   Dimensions,
   Button,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
@@ -20,7 +21,7 @@ import {
   primary,
 } from "../components/configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../stores/slices/CounterSlice";
+import { increment, incrementByAmount } from "../stores/slices/CounterSlice";
 
 const PaddingLayout = 20;
 const ThreeColumnWidth = Dimensions.get("window").width / 2.5 - PaddingLayout;
@@ -99,7 +100,6 @@ const UnitKerja = () => {
 };
 
 const Home = ({ navigation }) => {
-  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
@@ -115,8 +115,7 @@ const Home = ({ navigation }) => {
             padding: PaddingLayout,
           }}
         >
-          <Text>{count}</Text>
-          <Button onClick={() => dispatch(increment())} title="Tambah"></Button>
+          <TouchableOpacity onPress={() => dispatch(incrementByAmount(5))}><Text>Tambah</Text></TouchableOpacity>
         </View>
         <UnitKerja />
       </ScrollView>

@@ -15,10 +15,10 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <Routes>
+    <Routes>
+      <Provider store={store}>
         <StackScreen />
-      </Routes>
-    </Provider>
+      </Provider>
+    </Routes>
   );
 }
