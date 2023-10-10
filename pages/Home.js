@@ -5,6 +5,7 @@ import {
   TextInput,
   ScrollView,
   Dimensions,
+  Button,
 } from "react-native";
 import React from "react";
 import LayoutScreen from "../components/Layout";
@@ -18,6 +19,8 @@ import {
   toscaColor,
   primary,
 } from "../components/configs/Colors";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../stores/slices/CounterSlice";
 
 const PaddingLayout = 20;
 const ThreeColumnWidth = Dimensions.get("window").width / 2.5 - PaddingLayout;
@@ -96,6 +99,8 @@ const UnitKerja = () => {
 };
 
 const Home = ({ navigation }) => {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
@@ -109,7 +114,10 @@ const Home = ({ navigation }) => {
             marginTop: 0,
             padding: PaddingLayout,
           }}
-        ></View>
+        >
+          <Text>{count}</Text>
+          <Button onClick={() => dispatch(increment())} title="Tambah"></Button>
+        </View>
         <UnitKerja />
       </ScrollView>
     </LayoutScreen>
