@@ -6,15 +6,13 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import LayoutScreen from "~/components/Layout";
 import { textPrimary } from "~/components/configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, incrementByAmount } from "~/stores/slices/CounterSlice";
 import SwiperHome from "./Swiper";
-
-const PaddingLayout = 20;
-const ThreeColumnWidth = Dimensions.get("window").width / 2.5 - PaddingLayout;
+import { ThreeColumnWidth, PaddingLayout } from "~/components/configs/Layout";
 
 const UnitKerja = () => {
   return (
@@ -40,6 +38,14 @@ const UnitKerja = () => {
 
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigation.navigate("Login");
+    }
+  }, [isAuthenticated]);
+  
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
