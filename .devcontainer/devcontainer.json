@@ -1,0 +1,23 @@
+{
+    "name": "Android Container",
+
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/gradle-sdkman:2": {
+            "version": "latest",
+            "jdkVersion": "11",
+            "jdkDistro": "ms"
+        },
+        "ghcr.io/devcontainers-contrib/features/kotlin-sdkman:2": {
+            "version": "latest",
+            "jdkVersion": "11",
+            "jdkDistro": "ms"
+        },
+        "ghcr.io/mikaello/devcontainer-features/kotlinc:1": {},
+        "ghcr.io/akhildevelops/devcontainer-features/android-cli:0": {},
+        "ghcr.io/jarrodcolburn/features/android-sdk:0": {
+            "platforms": "27",
+            "build-tools": "33.0.2"
+        }
+    }
+}
