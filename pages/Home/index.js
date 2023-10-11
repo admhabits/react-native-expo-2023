@@ -39,7 +39,7 @@ const UnitKerja = () => {
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.auth.user?.username);
-  console.log("\nUSERNAME OF USER : ", username);
+  if(username != 'undefined') console.log("\n Login User as : ", username);
 
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
