@@ -12,7 +12,33 @@ import { textPrimary } from "~/components/configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, incrementByAmount } from "~/stores/slices/CounterSlice";
 import SwiperHome from "./Swiper";
-import { ThreeColumnWidth, PaddingLayout } from "~/components/configs/Layout";
+import {
+  ThreeColumnWidth,
+  FourColumnWidth,
+  PaddingLayout,
+} from "~/components/configs/Layout";
+
+const MenuHome = ({ username }) => {
+  return (
+    <View
+      style={{
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
+        height: 110,
+        backgroundColor: "white",
+        marginTop: 0,
+        padding: PaddingLayout,
+      }}
+    >
+      <View style={{ gap: 10, flexDirection: "row" }}>
+        <View style={styles.cardMenu}></View>
+        <View style={styles.cardMenu}></View>
+        <View style={styles.cardMenu}></View>
+        <View style={styles.cardMenu}></View>
+      </View>
+    </View>
+  );
+};
 
 const UnitKerja = () => {
   return (
@@ -39,26 +65,13 @@ const UnitKerja = () => {
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.auth.user?.username);
-  if(username != 'undefined') console.log("\n Login User as : ", username);
+  if (username != "undefined") console.log("\n Login User as : ", username);
 
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
-        <View
-          style={{
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            height: 110,
-            backgroundColor: "white",
-            marginTop: 0,
-            padding: PaddingLayout,
-          }}
-        >
-          <TouchableOpacity onPress={() => dispatch(incrementByAmount(5))}>
-            <Text>Hello {username}</Text>
-          </TouchableOpacity>
-        </View>
+        <MenuHome username={username} />
         <UnitKerja />
       </ScrollView>
     </LayoutScreen>
@@ -78,6 +91,13 @@ const styles = StyleSheet.create({
     zIndex: 10,
     backgroundColor: "white",
     borderRadius: 15,
+  },
+  cardMenu: {
+    height: 60,
+    width: FourColumnWidth,
+    backgroundColor: "#F0F0F0",
+    flex: 1,
+    borderRadius: 8,
   },
   cardHome: {
     height: 110,
