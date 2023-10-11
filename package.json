@@ -10,6 +10,7 @@
     "build:sample": "eas build -p android --profile sample",
     "doctor": "expo doctor",
     "prebuild": "expo prebuild",
+    "build:local": "eas build --local --profile sample",
     "ios": "expo run:ios",
     "web": "expo start --web"
   },
