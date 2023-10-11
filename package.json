@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start --tunnel",
+    "start": "expo start",
+    "start:tunnel": "expo start --tunnel",
     "start:reset": "expo start --reset-cache",
     "android": "expo run:android",
     "build:sample": "eas build -p android --profile sample",
