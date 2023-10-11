@@ -54,7 +54,7 @@ export default function Footer({ style, float, navigation}) {
           name="home"
           size={20}
           textSize={12}
-          title="home"
+          title="Beranda"
           color="white"
           onPress={() => navigation.navigate('Home')}
         />
@@ -62,7 +62,7 @@ export default function Footer({ style, float, navigation}) {
           name="school"
           size={20}
           textSize={12}
-          title="Pendidikan"
+          title="Profile"
           color="white"
           onPress={() => navigation.navigate('Home')}
         />
@@ -73,15 +73,15 @@ export default function Footer({ style, float, navigation}) {
           name="user-graduate"
           size={20}
           textSize={12}
-          title="Beasiswa"
+          title="Si DOEL"
           color="white"
           onPress={() => navigation.navigate('Home')}
         />
         <ButtonIcon
-          name="chalkboard"
+          name="user-circle"
           size={20}
           textSize={12}
-          title="Informasi"
+          title="Akun"
           color="white"
           onPress={() => navigation.navigate('Informasi')}
         />
