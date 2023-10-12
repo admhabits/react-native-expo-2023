@@ -63,14 +63,24 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [isMask, setIsMask] = useState(true);
 
+  const saveToLocalStorage = () => {
+    console.log(username);
+    dispatch(loginUser({ username }));
+    if (rememberMe) dispatch(toggleRememberMe());
+    saveState(auth);
+  };
+
   const LoginHandler = () => {
     if (username == "" || password == "") {
-      Alert.alert("Masukan Username dan Password yang valid!");
+      Alert.alert("Masukan username dan password masih kosong!");
     } else {
-      console.log(username);
-      dispatch(loginUser({ username }));
-      if (rememberMe) dispatch(toggleRememberMe());
-      saveState(auth);
+      if (username.length < 8) {
+        Alert.alert(
+          "Username tidak valid. Silahkan masukan minimal 8 karakter!"
+        );
+        return;
+      }
+      saveToLocalStorage();
     }
   };
 
@@ -130,7 +140,12 @@ const Login = () => {
                 name={isMask ? "eye-slash" : "eye"}
                 color="#234"
                 size={23}
-                style={{ marginRight: 10, left: 310, bottom: 45 }}
+                style={{
+                  marginRight: 10,
+                  left: 310,
+                  bottom: 20,
+                  position: "absolute",
+                }}
                 onPress={() => setIsMask(!isMask)}
               />
             </View>
