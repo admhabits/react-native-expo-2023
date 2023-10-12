@@ -127,7 +127,7 @@ const Login = () => {
             ></TextInput>
           </View>
           <TouchableOpacity onPress={() => LoginHandler()}>
-            <Text style={style.btnSignInStyle}>Masuk</Text>
+            <Text style={styles.btnSignInStyle}>Masuk</Text>
           </TouchableOpacity>
           <LoginFooter setRememberMe={setRememberMe} rememberMe={rememberMe} />
           <View style={styles.container2}>
