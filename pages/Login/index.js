@@ -110,7 +110,7 @@ const Login = () => {
         </View>
         <View>
           <View style={{ gap: 5 }}>
-            <Text style={style.fontGeneral}>Email</Text>
+            <Text style={styles.fontGeneral}>Email</Text>
             <TextInput
               onChangeText={(user) => setUsername(user)}
               placeholder=""
@@ -118,7 +118,7 @@ const Login = () => {
             ></TextInput>
           </View>
           <View style={{ gap: 5 }}>
-            <Text style={style.fontGeneral}>Kata Sandi</Text>
+            <Text style={styles.fontGeneral}>Kata Sandi</Text>
             <TextInput
               secureTextEntry={true}
               onChangeText={(pass) => setPassword(pass)}
