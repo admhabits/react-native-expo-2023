@@ -20,6 +20,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
 import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
+import { orangeColor } from "~/components/configs/Colors";
 
 // create a component
 const Login = () => {
@@ -107,7 +108,7 @@ const Login = () => {
                 padding: 15,
                 marginTop: 10,
                 fontFamily: "Montserrat",
-                backgroundColor: "orange",
+                backgroundColor: orangeColor,
                 fontSize: 18,
                 textAlign: "center",
                 borderRadius: 10,
