@@ -3,6 +3,7 @@ import Home from "~/pages/Home";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "~pages/Login";
 import Informasi from "~/pages/informasi";
+import Register from "~/pages/Register";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,11 @@ const StackScreen = () => {
        <Stack.Screen
         name="Informasi"
         component={Informasi}
+        options={{ headerShown: false }}
+      />
+       <Stack.Screen
+        name="Pendaftaran"
+        component={Register}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

@@ -22,44 +22,14 @@ import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 
-const LoginFooter = ({ setRememberMe, rememberMe }) => {
-  return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-        <Checkbox
-          disabled={false}
-          style={{ marginVertical: 20, color: "white", borderColor: "white" }}
-          value={rememberMe}
-          onValueChange={(newValue) => setRememberMe(newValue)}
-        />
-        <Text style={{ fontFamily: "Montserrat", color: "white" }}>
-          Ingat Saya
-        </Text>
-      </View>
-      <TouchableOpacity onPress={() => Alert.alert("Kamu lupa password ?")}>
-        <Text style={{ fontFamily: "Montserrat", color: "white" }}>
-          Lupa Kata Sandi ?
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 // create a component
-const Login = () => {
+const Register = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
 
   const LoginHandler = () => {
     if (username == "" || password == "") {
@@ -101,11 +71,10 @@ const Login = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
           <Text style={{ fontFamily: "Inter", fontSize: 30, color: "white" }}>
-            Login
+            Daftar Akun
           </Text>
           <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
-            Silakan masukkan alamat email dan kata sandi Anda untuk masuk ke
-            akun Anda
+            Silakan lengkapi semua kolom masukan untuk membuat akun Anda
           </Text>
         </View>
         <View>
@@ -127,15 +96,17 @@ const Login = () => {
             ></TextInput>
           </View>
           <TouchableOpacity onPress={() => LoginHandler()}>
-            <Text style={styles.btnSignInStyle}>Masuk</Text>
+            <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
           </TouchableOpacity>
-          <LoginFooter setRememberMe={setRememberMe} rememberMe={rememberMe} />
+
           <View style={styles.container2}>
             <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
-              Belum punya akun?
+              Sudah Memiliki akun?
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Pendaftaran")}>
-              <Text style={styles.fontSignUp}>Daftar Disini</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={styles.fontSignUp}>Masuk</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -179,7 +150,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textDecorationLine: "underline",
   },
-  btnSignInStyle: {
+  btnRegisterStyle: {
     color: "white",
     padding: 15,
     marginTop: 10,
@@ -193,4 +164,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default Login;
+export default Register;
