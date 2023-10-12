@@ -134,7 +134,7 @@ const Login = () => {
             <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
               Belum punya akun?
             </Text>
-            <Text style={style.fontSignUp}>Daftar Disini</Text>
+            <Text style={styles.fontSignUp}>Daftar Disini</Text>
           </View>
         </View>
       </ScrollView>
