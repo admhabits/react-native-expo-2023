@@ -2,6 +2,7 @@ import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
+import { useNavigation } from "@react-navigation/native";
 
 export const ButtonIcon = ({ name, size, color, textSize, title, onPress }) => {
   return (
@@ -31,13 +32,15 @@ export const ButtonIcon = ({ name, size, color, textSize, title, onPress }) => {
 };
 
 export const FloatingButton = ({ style }) => {
+  const navigation = useNavigation();
+
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
       style={style}
     >
-      <TouchableOpacity>
-        <FontAwesome name="qrcode" size={30} color="white" />
+      <TouchableOpacity onPress={() => navigation.navigate("Informasi")}>
+        <FontAwesome name="layer-group" size={30} color="white" />
       </TouchableOpacity>
     </LinearGradient>
   );
@@ -51,7 +54,7 @@ export default function Footer({ style, float, navigation}) {
     >
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <ButtonIcon
-          name="home"
+          name="tachometer-alt"
           size={20}
           textSize={12}
           title="Beranda"
@@ -70,7 +73,7 @@ export default function Footer({ style, float, navigation}) {
 
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <ButtonIcon
-          name="user-graduate"
+          name="file-medical-alt"
           size={20}
           textSize={12}
           title="Si DOEL"
@@ -78,7 +81,7 @@ export default function Footer({ style, float, navigation}) {
           onPress={() => navigation.navigate('Home')}
         />
         <ButtonIcon
-          name="user-circle"
+          name="id-card"
           size={20}
           textSize={12}
           title="Akun"
