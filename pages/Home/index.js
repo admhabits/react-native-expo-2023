@@ -62,6 +62,28 @@ const UnitKerja = () => {
   );
 };
 
+const BeritaHubla = () => {
+  return (
+    <View
+    style={{
+      height: 280,
+      backgroundColor: "white",
+      marginTop: 15,
+      padding: 20,
+    }}
+  >
+    <Text style={styles.textHeading}>Kabar Berita</Text>
+    <ScrollView horizontal>
+      <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
+        <View style={styles.cardBerita}></View>
+        <View style={styles.cardBerita}></View>
+        <View style={styles.cardBerita}></View>
+      </View>
+    </ScrollView>
+  </View>
+  );
+}
+
 const Home = ({ navigation }) => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.auth.user?.username);
@@ -72,6 +94,7 @@ const Home = ({ navigation }) => {
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <MenuHome username={username} />
+        <BeritaHubla/>
         <UnitKerja />
       </ScrollView>
     </LayoutScreen>
@@ -100,8 +123,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   cardHome: {
-    height: 110,
+    height: 120,
     width: ThreeColumnWidth,
+    backgroundColor: "#F0F0F0",
+    flex: 1,
+    borderRadius: 8,
+  },
+  cardBerita: {
+    height: 200,
+    width: ThreeColumnWidth + 120,
     backgroundColor: "#F0F0F0",
     flex: 1,
     borderRadius: 8,
