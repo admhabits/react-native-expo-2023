@@ -22,6 +22,35 @@ import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 
+const LoginFooter = ({ setRememberMe, rememberMe }) => {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+        <Checkbox
+          disabled={false}
+          style={{ marginVertical: 20, color: "white", borderColor: "white" }}
+          value={rememberMe}
+          onValueChange={(newValue) => setRememberMe(newValue)}
+        />
+        <Text style={{ fontFamily: "Montserrat", color: "white" }}>
+          Ingat Saya
+        </Text>
+      </View>
+      <TouchableOpacity onPress={() => Alert.alert("Kamu lupa password ?")}>
+        <Text style={{ fontFamily: "Montserrat", color: "white" }}>
+          Lupa Kata Sandi ?
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 // create a component
 const Login = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -81,9 +110,7 @@ const Login = () => {
         </View>
         <View>
           <View style={{ gap: 5 }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
-              Email
-            </Text>
+            <Text style={style.fontGeneral}>Email</Text>
             <TextInput
               onChangeText={(user) => setUsername(user)}
               placeholder=""
@@ -91,9 +118,7 @@ const Login = () => {
             ></TextInput>
           </View>
           <View style={{ gap: 5 }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
-              Kata Sandi
-            </Text>
+            <Text style={style.fontGeneral}>Kata Sandi</Text>
             <TextInput
               secureTextEntry={true}
               onChangeText={(pass) => setPassword(pass)}
@@ -102,46 +127,14 @@ const Login = () => {
             ></TextInput>
           </View>
           <TouchableOpacity onPress={() => LoginHandler()}>
-            <Text
-              style={{
-                color: "white",
-                padding: 15,
-                marginTop: 10,
-                fontFamily: "Montserrat",
-                backgroundColor: orangeColor,
-                fontSize: 18,
-                textAlign: "center",
-                borderRadius: 10,
-              }}
-            >
-              Masuk
-            </Text>
+            <Text style={style.btnSignInStyle}>Masuk</Text>
           </TouchableOpacity>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <View
-              style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
-            >
-              <Checkbox
-                disabled={false}
-                style={{ marginVertical: 20, color: "white", borderColor: 'white'}}
-                value={rememberMe}
-                onValueChange={(newValue) => setRememberMe(newValue)}
-              />
-              <Text style={{ fontFamily: "Montserrat", color: "white" }}>
-                Ingat Saya 
-              </Text>
-            </View>
-            <TouchableOpacity onPress={() => Alert.alert("Kamu lupa password ?")}>
-              <Text style={{ fontFamily: "Montserrat", color: "white" }}>
-                Lupa Kata Sandi ?
-              </Text>
-            </TouchableOpacity>
+          <LoginFooter setRememberMe={setRememberMe} rememberMe={rememberMe} />
+          <View style={styles.container2}>
+            <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
+              Belum punya akun?
+            </Text>
+            <Text style={style.fontSignUp}>Daftar Disini</Text>
           </View>
         </View>
       </ScrollView>
@@ -157,6 +150,17 @@ const styles = StyleSheet.create({
     backgroundColor: toscaColor,
     padding: PaddingLayout + 10,
   },
+  container2: {
+    marginVertical: 20,
+    flexDirection: "row",
+    gap: 5,
+    justifyContent: "center",
+  },
+  fontGeneral: {
+     color: "white", 
+     fontSize: 16, 
+     fontWeight: "bold"
+  },
   input: {
     backgroundColor: "white",
     paddingHorizontal: 15,
@@ -165,6 +169,23 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 10,
     fontSize: 14,
+  },
+  fontSignUp: {
+    fontFamily: "Inter",
+    fontSize: 16,
+    color: "white",
+    fontWeight: "bold",
+    textDecorationLine: "underline",
+  },
+  btnSignInStyle: {
+    color: "white",
+    padding: 15,
+    marginTop: 10,
+    fontFamily: "Montserrat",
+    backgroundColor: orangeColor,
+    fontSize: 18,
+    textAlign: "center",
+    borderRadius: 10,
   },
 });
 
