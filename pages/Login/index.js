@@ -21,6 +21,7 @@ import { PaddingLayout } from "~/components/configs/Layout";
 import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
+import FontAwesome5 from "~/components/Icons";
 
 const LoginFooter = ({ setRememberMe, rememberMe }) => {
   return (
@@ -60,6 +61,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [isMask, setIsMask] = useState(true);
 
   const LoginHandler = () => {
     if (username == "" || password == "") {
@@ -100,9 +102,7 @@ const Login = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
-          <Text style={styles.headerPage}>
-            Login
-          </Text>
+          <Text style={styles.headerPage}>Login</Text>
           <Text style={{ fontFamily: "Inter", fontSize: 18, color: "white" }}>
             Silakan masukkan alamat email dan kata sandi Anda untuk masuk ke
             akun Anda
@@ -119,12 +119,21 @@ const Login = () => {
           </View>
           <View style={{ gap: 5 }}>
             <Text style={styles.fontGeneral}>Kata Sandi</Text>
-            <TextInput
-              secureTextEntry={true}
-              onChangeText={(pass) => setPassword(pass)}
-              placeholder="********"
-              style={styles.input}
-            ></TextInput>
+            <View>
+              <TextInput
+                secureTextEntry={isMask}
+                onChangeText={(pass) => setPassword(pass)}
+                placeholder="********"
+                style={styles.input}
+              ></TextInput>
+              <FontAwesome5
+                name={isMask ? "eye-slash" : "eye"}
+                color="#234"
+                size={23}
+                style={{ marginRight: 10, left: 310, bottom: 45 }}
+                onPress={() => setIsMask(!isMask)}
+              />
+            </View>
           </View>
           <TouchableOpacity onPress={() => LoginHandler()}>
             <Text style={styles.btnSignInStyle}>Masuk</Text>
@@ -134,7 +143,9 @@ const Login = () => {
             <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
               Belum punya akun?
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Pendaftaran")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Pendaftaran")}
+            >
               <Text style={styles.fontSignUp}>Daftar Disini</Text>
             </TouchableOpacity>
           </View>
@@ -188,7 +199,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     borderRadius: 10,
-    textTransform: 'uppercase'
+    textTransform: "uppercase",
   },
   headerPage: {
     fontFamily: "Inter",
