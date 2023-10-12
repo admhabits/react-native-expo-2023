@@ -30,7 +30,7 @@ export default function Header({ style }) {
             <TouchableOpacity onPress={() => setIsLocal('id')}>
               <Text style={{ ...styles.localizationText, color: isLocal == 'id' ? 'white' : textPrimary}}>ID</Text>
             </TouchableOpacity>
-            <Text style={styles.localizationText}>/{count}</Text>
+            <Text style={styles.localizationText}>/</Text>
             <TouchableOpacity onPress={() => setIsLocal('en')}>
               <Text style={{ ...styles.localizationText, color: isLocal == 'en' ? 'white' : textPrimary}}>EN</Text>
             </TouchableOpacity>
