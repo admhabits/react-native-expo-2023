@@ -80,7 +80,9 @@ const Login = () => {
         </View>
         <View>
           <View style={{ gap: 5 }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: 'bold' }}>Email</Text>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
+              Email
+            </Text>
             <TextInput
               onChangeText={(user) => setUsername(user)}
               placeholder=""
@@ -88,7 +90,9 @@ const Login = () => {
             ></TextInput>
           </View>
           <View style={{ gap: 5 }}>
-            <Text style={{ color: "white", fontSize: 16, fontWeight: 'bold' }}>Kata Sandi</Text>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: "bold" }}>
+              Kata Sandi
+            </Text>
             <TextInput
               secureTextEntry={true}
               onChangeText={(pass) => setPassword(pass)}
@@ -112,16 +116,31 @@ const Login = () => {
               Masuk
             </Text>
           </TouchableOpacity>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-            <Checkbox
-              disabled={false}
-              style={{ marginVertical: 20, color: "white" }}
-              value={rememberMe}
-              onValueChange={(newValue) => setRememberMe(newValue)}
-            />
-            <Text style={{ fontFamily: "Montserrat", color: "white" }}>
-              Remember Me
-            </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
+            >
+              <Checkbox
+                disabled={false}
+                style={{ marginVertical: 20, color: "white", borderColor: 'white'}}
+                value={rememberMe}
+                onValueChange={(newValue) => setRememberMe(newValue)}
+              />
+              <Text style={{ fontFamily: "Montserrat", color: "white" }}>
+                Ingat Saya 
+              </Text>
+            </View>
+            <TouchableOpacity onPress={() => Alert.alert("Kamu lupa password ?")}>
+              <Text style={{ fontFamily: "Montserrat", color: "white" }}>
+                Lupa Kata Sandi ?
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
