@@ -18,7 +18,7 @@ import {
   PaddingLayout,
 } from "~/components/configs/Layout";
 
-const MenuHome = ({ username }) => {
+const MenuHome = () => {
   return (
     <View
       style={{
@@ -85,15 +85,11 @@ const BeritaHubla = () => {
 }
 
 const Home = ({ navigation }) => {
-  const dispatch = useDispatch();
-  const username = useSelector((state) => state.auth.user?.username);
-  if (username != "undefined") console.log("\n Login User as : ", username);
-
   return (
     <LayoutScreen statusBar={textPrimary} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
-        <MenuHome username={username} />
+        <MenuHome />
         <BeritaHubla/>
         <UnitKerja />
       </ScrollView>
