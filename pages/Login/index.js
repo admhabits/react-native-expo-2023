@@ -17,7 +17,8 @@ import { toggleRememberMe } from "~/stores/slices/AuthSlice";
 import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
-import { CheckBox } from "@rneui/themed";
+import CheckBox from '@react-native-community/checkbox';
+import Checkbox from "expo-checkbox";
 
 // create a component
 const Login = () => {
@@ -35,7 +36,7 @@ const Login = () => {
     } else {
       console.log(username);
       dispatch(loginUser({ username }));
-      if (true) dispatch(toggleRememberMe());
+      if (rememberMe) dispatch(toggleRememberMe());
       saveState(auth);
     }
   };
@@ -94,16 +95,14 @@ const Login = () => {
             Masuk
           </Text>
         </TouchableOpacity>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          {/* <CheckBox
-            containerStyle={{ marginHorizontal: 20, backgroundColor: 'transparent' }}
-            center
-            textStyle={{ color: 'white', fontFamily: 'Montserrat' }}
-            iconStyle={{ backgroundColor: 'white' }}
-            title="Remember Me"
-            checked={rememberMe}
-            onPress={() => setRememberMe(!rememberMe)}
-          /> */}
+        <View style={{ flexDirection: "row", alignItems: "center" , gap: 10}}>
+          <Checkbox
+            disabled={false}
+            style={{ marginVertical: 20, color: 'white' }}
+            value={rememberMe}
+            onValueChange={(newValue) => setRememberMe(newValue)}
+          />
+          <Text style={{  fontFamily: 'Montserrat', color: 'white' }}>Remember Me</Text>
         </View>
       </View>
     </SafeAreaView>
