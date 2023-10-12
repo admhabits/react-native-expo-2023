@@ -17,6 +17,7 @@ import { toggleRememberMe } from "~/stores/slices/AuthSlice";
 import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
+import { CheckBox } from "@rneui/themed";
 
 // create a component
 const Login = () => {
@@ -26,11 +27,13 @@ const Login = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const LoginHandler = ({ username, password }) => {
+  const LoginHandler = () => {
     if (username == "" || password == "") {
       Alert.alert("Masukan Username dan Password yang valid!");
     } else {
+      console.log(username);
       dispatch(loginUser({ username }));
       if (true) dispatch(toggleRememberMe());
       saveState(auth);
@@ -65,17 +68,17 @@ const Login = () => {
     <SafeAreaView style={styles.container}>
       <View>
         <TextInput
-          onChange={(e) => setUsername(e.value)}
+          onChangeText={(user) => setUsername(user)}
           placeholder="Username"
           style={styles.input}
         ></TextInput>
         <TextInput
           secureTextEntry={true}
-          onChange={(e) => setPassword(e.value)}
+          onChangeText={(pass) => setPassword(pass)}
           placeholder="Password"
           style={styles.input}
         ></TextInput>
-        <TouchableOpacity onPress={() => LoginHandler({ username, password })}>
+        <TouchableOpacity onPress={() => LoginHandler()}>
           <Text
             style={{
               color: "white",
@@ -91,6 +94,17 @@ const Login = () => {
             Masuk
           </Text>
         </TouchableOpacity>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          {/* <CheckBox
+            containerStyle={{ marginHorizontal: 20, backgroundColor: 'transparent' }}
+            center
+            textStyle={{ color: 'white', fontFamily: 'Montserrat' }}
+            iconStyle={{ backgroundColor: 'white' }}
+            title="Remember Me"
+            checked={rememberMe}
+            onPress={() => setRememberMe(!rememberMe)}
+          /> */}
+        </View>
       </View>
     </SafeAreaView>
   );
