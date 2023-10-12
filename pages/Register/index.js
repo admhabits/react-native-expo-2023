@@ -70,9 +70,7 @@ const Register = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
-          <Text style={{ fontFamily: "Inter", fontSize: 30, color: "white" }}>
-            Daftar Akun
-          </Text>
+          <Text style={styles.headerPage}>Daftar Akun</Text>
           <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
             Silakan lengkapi semua kolom masukan untuk membuat akun Anda
           </Text>
@@ -103,9 +101,7 @@ const Register = () => {
             <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
               Sudah Memiliki akun?
             </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Login")}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
               <Text style={styles.fontSignUp}>Masuk</Text>
             </TouchableOpacity>
           </View>
@@ -159,7 +155,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     borderRadius: 10,
-    textTransform: 'uppercase'
+    textTransform: "uppercase",
+  },
+  headerPage: {
+    fontFamily: "Inter",
+    fontSize: 30,
+    color: "white",
+    fontWeight: "bold",
   },
 });
 

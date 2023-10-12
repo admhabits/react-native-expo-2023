@@ -100,7 +100,7 @@ const Login = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
-          <Text style={{ fontFamily: "Inter", fontSize: 30, color: "white" }}>
+          <Text style={styles.headerPage}>
             Login
           </Text>
           <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
@@ -189,6 +189,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderRadius: 10,
     textTransform: 'uppercase'
+  },
+  headerPage: {
+    fontFamily: "Inter",
+    fontSize: 30,
+    color: "white",
+    fontWeight: "bold",
   },
 });
 
