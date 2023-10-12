@@ -17,6 +17,37 @@ import {
   FourColumnWidth,
   PaddingLayout,
 } from "~/components/configs/Layout";
+import FontAwesome from "~/components/Icons";
+
+const CardMenu = ({
+  iconName,
+  iconColor,
+  iconSize,
+  fontSize,
+  fontFamily,
+  titleCard,
+  titleColor,
+  backgroundColor,
+}) => {
+  return (
+    <TouchableOpacity style={{ ...styles.cardMenu, backgroundColor }}>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <FontAwesome name={iconName} color={iconColor} size={iconSize} />
+        <Text
+          style={{
+            fontSize,
+            fontFamily,
+            fontWeight: "bold",
+            marginTop: 1,
+            color: titleColor,
+          }}
+        >
+          {titleCard}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const MenuHome = () => {
   return (
@@ -31,10 +62,47 @@ const MenuHome = () => {
       }}
     >
       <View style={{ gap: 10, flexDirection: "row" }}>
-        <View style={styles.cardMenu}></View>
-        <View style={styles.cardMenu}></View>
-        <View style={styles.cardMenu}></View>
-        <View style={styles.cardMenu}></View>
+        <CardMenu
+          iconName={"camera-retro"}
+          iconColor={"white"}
+          iconSize={30}
+          fontSize={12}
+          fontFamily={"Inter"}
+          titleCard={"Galeri Photo"}
+          backgroundColor={"#3C9DE2"}
+          titleColor={"white"}
+        />
+
+        <CardMenu
+          iconName={"info-circle"}
+          iconColor={"white"}
+          iconSize={30}
+          fontSize={12}
+          fontFamily={"Inter"}
+          titleCard={"Informasi"}
+          backgroundColor={"#CB5C5D"}
+          titleColor={"white"}
+        />
+        <CardMenu
+          iconName={"file-signature"}
+          iconColor={"white"}
+          iconSize={30}
+          fontSize={12}
+          fontFamily={"Inter"}
+          titleCard={"Perjanjian"}
+          backgroundColor={"#FDA53C"}
+          titleColor={"white"}
+        />
+        <CardMenu
+          iconName={"box-open"}
+          iconColor={"white"}
+          iconSize={30}
+          fontSize={12}
+          fontFamily={"Inter"}
+          titleCard={"Lainnya"}
+          backgroundColor={"#0075CB"}
+          titleColor={"white"}
+        />
       </View>
     </View>
   );
@@ -65,24 +133,24 @@ const UnitKerja = () => {
 const BeritaHubla = () => {
   return (
     <View
-    style={{
-      height: 280,
-      backgroundColor: "white",
-      marginTop: 15,
-      padding: 20,
-    }}
-  >
-    <Text style={styles.textHeading}>Kabar Berita</Text>
-    <ScrollView horizontal>
-      <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
-        <View style={styles.cardBerita}></View>
-        <View style={styles.cardBerita}></View>
-        <View style={styles.cardBerita}></View>
-      </View>
-    </ScrollView>
-  </View>
+      style={{
+        height: 280,
+        backgroundColor: "white",
+        marginTop: 15,
+        padding: 20,
+      }}
+    >
+      <Text style={styles.textHeading}>Kabar Berita</Text>
+      <ScrollView horizontal>
+        <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
+          <View style={styles.cardBerita}></View>
+          <View style={styles.cardBerita}></View>
+          <View style={styles.cardBerita}></View>
+        </View>
+      </ScrollView>
+    </View>
   );
-}
+};
 
 const Home = ({ navigation }) => {
   return (
@@ -90,7 +158,7 @@ const Home = ({ navigation }) => {
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <MenuHome />
-        <BeritaHubla/>
+        <BeritaHubla />
         <UnitKerja />
       </ScrollView>
     </LayoutScreen>
@@ -117,6 +185,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#F0F0F0",
     flex: 1,
     borderRadius: 8,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   cardHome: {
     height: 120,
