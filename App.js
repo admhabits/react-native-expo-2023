@@ -8,6 +8,7 @@ export default function App() {
   const [loaded] = useFonts({
     Montserrat: require("./assets/fonts/Montserrat-Regular.ttf"),
     Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
+    Inter: require("./assets/fonts/Inter.ttf"),
   });
 
   if (!loaded) {

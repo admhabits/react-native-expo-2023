@@ -9,6 +9,7 @@ import {
   Alert,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
@@ -17,7 +18,7 @@ import { toggleRememberMe } from "~/stores/slices/AuthSlice";
 import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 
 // create a component
@@ -67,44 +68,63 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <TextInput
-          onChangeText={(user) => setUsername(user)}
-          placeholder="Username"
-          style={styles.input}
-        ></TextInput>
-        <TextInput
-          secureTextEntry={true}
-          onChangeText={(pass) => setPassword(pass)}
-          placeholder="Password"
-          style={styles.input}
-        ></TextInput>
-        <TouchableOpacity onPress={() => LoginHandler()}>
-          <Text
-            style={{
-              color: "white",
-              padding: 15,
-              marginTop: 10,
-              fontFamily: "Montserrat",
-              backgroundColor: "orange",
-              fontSize: 18,
-              textAlign: "center",
-              borderRadius: 10,
-            }}
-          >
-            Masuk
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{ marginVertical: 20, gap: 10 }}>
+          <Text style={{ fontFamily: "Inter", fontSize: 30, color: "white" }}>
+            Login
           </Text>
-        </TouchableOpacity>
-        <View style={{ flexDirection: "row", alignItems: "center" , gap: 10}}>
-          <Checkbox
-            disabled={false}
-            style={{ marginVertical: 20, color: 'white' }}
-            value={rememberMe}
-            onValueChange={(newValue) => setRememberMe(newValue)}
-          />
-          <Text style={{  fontFamily: 'Montserrat', color: 'white' }}>Remember Me</Text>
+          <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
+            Silakan masukkan alamat email dan kata sandi Anda untuk masuk ke
+            akun Anda
+          </Text>
         </View>
-      </View>
+        <View>
+          <View style={{ gap: 5 }}>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: 'bold' }}>Email</Text>
+            <TextInput
+              onChangeText={(user) => setUsername(user)}
+              placeholder=""
+              style={styles.input}
+            ></TextInput>
+          </View>
+          <View style={{ gap: 5 }}>
+            <Text style={{ color: "white", fontSize: 16, fontWeight: 'bold' }}>Kata Sandi</Text>
+            <TextInput
+              secureTextEntry={true}
+              onChangeText={(pass) => setPassword(pass)}
+              placeholder="********"
+              style={styles.input}
+            ></TextInput>
+          </View>
+          <TouchableOpacity onPress={() => LoginHandler()}>
+            <Text
+              style={{
+                color: "white",
+                padding: 15,
+                marginTop: 10,
+                fontFamily: "Montserrat",
+                backgroundColor: "orange",
+                fontSize: 18,
+                textAlign: "center",
+                borderRadius: 10,
+              }}
+            >
+              Masuk
+            </Text>
+          </TouchableOpacity>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+            <Checkbox
+              disabled={false}
+              style={{ marginVertical: 20, color: "white" }}
+              value={rememberMe}
+              onValueChange={(newValue) => setRememberMe(newValue)}
+            />
+            <Text style={{ fontFamily: "Montserrat", color: "white" }}>
+              Remember Me
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -115,7 +135,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: toscaColor,
-    padding: PaddingLayout + 30,
+    padding: PaddingLayout + 10,
   },
   input: {
     backgroundColor: "white",
