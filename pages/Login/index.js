@@ -103,7 +103,7 @@ const Login = () => {
           <Text style={styles.headerPage}>
             Login
           </Text>
-          <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
+          <Text style={{ fontFamily: "Inter", fontSize: 18, color: "white" }}>
             Silakan masukkan alamat email dan kata sandi Anda untuk masuk ke
             akun Anda
           </Text>

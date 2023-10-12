@@ -21,6 +21,7 @@ import { PaddingLayout } from "~/components/configs/Layout";
 import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
+import { ButtonIcon } from "~/components/Button";
 
 // create a component
 const Register = () => {
@@ -68,10 +69,11 @@ const Register = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+        <ButtonIcon name="arrow-left" textSize={18} size={14} title="Kembali" onPress={() => navigation.navigate("Login")}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
           <Text style={styles.headerPage}>Daftar Akun</Text>
-          <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
+          <Text style={{ fontFamily: "Inter", fontSize: 18, color: "white" }}>
             Silakan lengkapi semua kolom masukan untuk membuat akun Anda
           </Text>
         </View>
