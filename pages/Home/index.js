@@ -119,7 +119,7 @@ const UnitKerja = () => {
       }}
     >
       <Text style={styles.textHeading}>Unit Kerja</Text>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
           <View style={styles.cardHome}></View>
           <View style={styles.cardHome}></View>
@@ -141,7 +141,7 @@ const BeritaHubla = () => {
       }}
     >
       <Text style={styles.textHeading}>Kabar Berita</Text>
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
           <View style={styles.cardBerita}></View>
           <View style={styles.cardBerita}></View>
