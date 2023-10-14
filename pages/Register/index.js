@@ -22,6 +22,7 @@ import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 import { ButtonIcon } from "~/components/Button";
+import Form from "~/components/Form";
 
 // create a component
 const Register = () => {
@@ -85,23 +86,40 @@ const Register = () => {
           </Text>
         </View>
         <View>
-          <View style={{ gap: 5 }}>
-            <Text style={styles.fontGeneral}>Email</Text>
-            <TextInput
-              onChangeText={(user) => setUsername(user)}
-              placeholder=""
-              style={styles.input}
-            ></TextInput>
-          </View>
-          <View style={{ gap: 5 }}>
-            <Text style={styles.fontGeneral}>Kata Sandi</Text>
-            <TextInput
-              secureTextEntry={true}
-              onChangeText={(pass) => setPassword(pass)}
-              placeholder="********"
-              style={styles.input}
-            ></TextInput>
-          </View>
+          <Form onChangeText={(user) => setUsername(user)} label="Nama"></Form>
+          <Form
+            onChangeText={(user) => setUsername(user)}
+            label="Username"
+          ></Form>
+          <Form
+            onChangeText={(user) => setUsername(user)}
+            label="Kategori"
+          ></Form>
+
+          <Form
+            onChangeText={(user) => setUsername(user)}
+            label="Foto KTP/NPWP (max 2MB)"
+          ></Form>
+          <Form
+            onChangeText={(user) => setUsername(user)}
+            label="Foto Akta Perusahaan/Surat Tugas (max 2MB)"
+          ></Form>
+          <Form
+            onChangeText={(user) => setUsername(user)}
+            label="Email"
+          ></Form>
+          <Form
+            placeholder="*********"
+            label="Kata Sandi *Min 8 Karakter"
+            secureTextEntry={true}
+            onChangeText={(pass) => setPassword(pass)}
+          ></Form>
+          <Form
+            placeholder="*********"
+            label="Ulangi Kata Sandi"
+            secureTextEntry={true}
+            onChangeText={(pass) => setPassword(pass)}
+          ></Form>
           <TouchableOpacity onPress={() => LoginHandler()}>
             <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
           </TouchableOpacity>
