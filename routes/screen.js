@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Login from "~pages/Login";
 import Informasi from "~/pages/informasi";
 import Register from "~/pages/Register";
+import ForgotPassword from "~/pages/Login/Recovery";
 
 const Stack = createStackNavigator();
 
@@ -20,12 +21,17 @@ const StackScreen = () => {
         component={Login}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
+        name="Forgot"
+        component={ForgotPassword}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
         name="Informasi"
         component={Informasi}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Pendaftaran"
         component={Register}
         options={{ headerShown: false }}

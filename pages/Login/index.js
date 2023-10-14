@@ -24,6 +24,7 @@ import { orangeColor } from "~/components/configs/Colors";
 import FontAwesome5 from "~/components/Icons";
 
 const LoginFooter = ({ setRememberMe, rememberMe }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -43,7 +44,7 @@ const LoginFooter = ({ setRememberMe, rememberMe }) => {
           Ingat Saya
         </Text>
       </View>
-      <TouchableOpacity onPress={() => Alert.alert("Kamu lupa password ?")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Forgot")}>
         <Text style={{ fontFamily: "Montserrat", color: "white" }}>
           Lupa Kata Sandi ?
         </Text>

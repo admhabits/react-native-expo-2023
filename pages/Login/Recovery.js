@@ -11,36 +11,21 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { loginUser } from "~/stores/slices/AuthSlice";
-import { toggleRememberMe } from "~/stores/slices/AuthSlice";
-import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
-import CheckBox from "@react-native-community/checkbox";
-import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 import { ButtonIcon } from "~/components/Button";
 
 // create a component
-const Register = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth);
-
+const ForgotPassword = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
-  const LoginHandler = () => {
-    if (username == "" || password == "") {
-      Alert.alert("Masukan Username dan Password yang valid!");
-    } else {
-      console.log(username);
-      dispatch(loginUser({ username }));
-      if (rememberMe) dispatch(toggleRememberMe());
-      saveState(auth);
-    }
+  const forgotPasswordHandler = () => {
+    if (username != "")
+      Alert.alert(`Permintaan reset password telah terkirim ke ${username}`),
+      navigation.navigate("Login");
   };
 
   useEffect(() => {
@@ -60,13 +45,6 @@ const Register = () => {
     return () => backHandler.remove(); // Cleanup the event listener on component unmount
   }, []);
 
-  const navigation = useNavigation();
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigation.navigate("Home");
-    }
-  }, [isAuthenticated]);
-
   return (
     <SafeAreaView style={styles.container}>
       <ButtonIcon
@@ -74,14 +52,14 @@ const Register = () => {
         textSize={18}
         size={14}
         title="Kembali"
-        color="white"
+        color={"white"}
         onPress={() => navigation.navigate("Login")}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
-          <Text style={styles.headerPage}>Daftar Akun</Text>
+          <Text style={styles.headerPage}>Lupa Password</Text>
           <Text style={{ fontFamily: "Inter", fontSize: 18, color: "white" }}>
-            Silakan lengkapi semua kolom masukan untuk membuat akun Anda
+            Masukan email atau username anda untuk permintaan reset password
           </Text>
         </View>
         <View>
@@ -93,27 +71,11 @@ const Register = () => {
               style={styles.input}
             ></TextInput>
           </View>
-          <View style={{ gap: 5 }}>
-            <Text style={styles.fontGeneral}>Kata Sandi</Text>
-            <TextInput
-              secureTextEntry={true}
-              onChangeText={(pass) => setPassword(pass)}
-              placeholder="********"
-              style={styles.input}
-            ></TextInput>
-          </View>
-          <TouchableOpacity onPress={() => LoginHandler()}>
-            <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
-          </TouchableOpacity>
-
-          <View style={styles.container2}>
-            <Text style={{ fontFamily: "Inter", fontSize: 16, color: "white" }}>
-              Sudah Memiliki akun?
+          <TouchableOpacity onPress={() => forgotPasswordHandler()}>
+            <Text style={styles.btnRegisterStyle}>
+              Kirim Link Reset Password
             </Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-              <Text style={styles.fontSignUp}>Masuk</Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -175,4 +137,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default Register;
+export default ForgotPassword;
