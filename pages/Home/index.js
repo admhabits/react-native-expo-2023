@@ -140,7 +140,7 @@ const BeritaHubla = () => {
         padding: 20,
       }}
     >
-      <Text style={styles.textHeading}>Kabar Berita</Text>
+      <Text style={styles.textHeading}>Berita Terbaru</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
           <View style={styles.cardBerita}></View>
