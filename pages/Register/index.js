@@ -65,14 +65,12 @@ const Register = () => {
   const navigation = useNavigation();
 
   const items = [
-    { value: "1", label: "Option A" },
-    { value: "2", label: "Option B" },
-    { value: "3", label: "Option C" },
-    { value: "4", label: "Option D" },
-    { value: "5", label: "Option E" },
-    { value: "6", label: "Option F" },
-    { value: "7", label: "Option G" },
-    { value: "8", label: "Option H" },
+    { value: "1", label: "Pribadi" },
+    { value: "2", label: "Pelaku Usaha" },
+    { value: "3", label: "Instansi Pemerintah" },
+    { value: "4", label: "Asosiasi/LSM" },
+    { value: "5", label: "Akademisi" },
+    { value: "6", label: "Option F" }
   ];
 
   const InputHandlerChange = (obj) => {

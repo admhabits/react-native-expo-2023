@@ -3,6 +3,9 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
+import { logoutUser } from "~/stores/slices/AuthSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { loadState } from "~/stores/saved/AsyncStorage";
 
 export const ButtonIcon = ({ name, size, color, textSize, title, onPress }) => {
   return (
@@ -33,14 +36,18 @@ export const ButtonIcon = ({ name, size, color, textSize, title, onPress }) => {
 
 export const FloatingButton = ({ style }) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
+  const LogoutHandler = () => {
+    dispatch(logoutUser());
+  }
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
       style={style}
     >
-      <TouchableOpacity onPress={() => navigation.navigate("Informasi")}>
-        <FontAwesome name="layer-group" size={30} color="white" />
+      <TouchableOpacity onPress={() => LogoutHandler()}>
+        <FontAwesome name="door-open" size={30} color="white" />
       </TouchableOpacity>
     </LinearGradient>
   );
