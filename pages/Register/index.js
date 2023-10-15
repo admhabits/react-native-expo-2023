@@ -29,17 +29,20 @@ const Register = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [kategori, setKategori] = useState("");
+  const [registerObj, setRegisterObj] = useState({
+    nama: "",
+    username: "",
+    kategori: "",
+    ktpNpwp: "",
+    aktaSurat: "",
+    email: "",
+    kataSandi: "",
+    kataSandiConfirm: "",
+  });
 
   const RegisterHandler = () => {
     Alert.alert(
-      JSON.stringify({
-        username,
-        password,
-        kategori,
-      })
+      JSON.stringify(registerObj)
     );
   };
 
@@ -73,9 +76,12 @@ const Register = () => {
     { value: "8", label: "Option H" },
   ];
 
+  const InputHandlerChange = (obj) => {
+    setRegisterObj({ ...registerObj, ...obj});
+  };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ paddingBottom: 20 }}> 
+      <View style={{ paddingBottom: 20 }}>
         <ButtonIcon
           name="arrow-left"
           textSize={18}
@@ -93,11 +99,14 @@ const Register = () => {
           </Text>
         </View>
         <View>
-          <Form onChangeText={(user) => setUsername(user)} label="Nama"></Form>
           <Form
-            onChangeText={(user) => setUsername(user)}
+            onChangeText={(value) => InputHandlerChange({ nama: value })}
+            label="Nama"
+          />
+          <Form
+            onChangeText={(value) => InputHandlerChange({ username: value })}
             label="Username"
-          ></Form>
+          />
 
           <View style={{ gap: 15, marginBottom: 15 }}>
             <Text
@@ -111,31 +120,31 @@ const Register = () => {
               Kategori
             </Text>
             <DropDown
-              getCurrentValue={(value) => setKategori(value)}
+              getCurrentValue={(value) => InputHandlerChange({ kategori: value })}
               items={items}
             />
           </View>
 
           <Form
-            onChangeText={(user) => setUsername(user)}
+            onChangeText={(value) => InputHandlerChange({ ktpNpwp: value })}
             label="Foto KTP/NPWP (max 2MB)"
           ></Form>
           <Form
-            onChangeText={(user) => setUsername(user)}
+            onChangeText={(value) => InputHandlerChange({ aktaSurat: value })}
             label="Foto Akta Perusahaan/Surat Tugas (max 2MB)"
           ></Form>
-          <Form onChangeText={(user) => setUsername(user)} label="Email"></Form>
+          <Form onChangeText={(value) => InputHandlerChange({ email: value })} label="Email"></Form>
           <Form
             placeholder="*********"
             label="Kata Sandi *Min 8 Karakter"
             secureTextEntry={true}
-            onChangeText={(pass) => setPassword(pass)}
+            onChangeText={(pass) => InputHandlerChange({ kataSandi: pass })}
           ></Form>
           <Form
             placeholder="*********"
             label="Ulangi Kata Sandi"
             secureTextEntry={true}
-            onChangeText={(pass) => setPassword(pass)}
+            onChangeText={(pass) => InputHandlerChange({ kataSandi: pass })}
           ></Form>
           <TouchableOpacity onPress={() => RegisterHandler()}>
             <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
