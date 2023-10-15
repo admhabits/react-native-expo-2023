@@ -100,7 +100,7 @@ const Register = () => {
         <View>
           <Form
             onChangeText={(value) => InputHandlerChange({ nama: value })}
-            label="Nama"
+            label="Nama Lengkap"
           />
           <Form
             onChangeText={(value) => InputHandlerChange({ username: value })}
