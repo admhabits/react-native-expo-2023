@@ -22,6 +22,7 @@ import { orangeColor } from "~/components/configs/Colors";
 import { ButtonIcon } from "~/components/Button";
 import Form from "~/components/Form";
 import DropDown from "~/components/Form/DropDown";
+import FileUpload from "~/components/Form/FileUpload";
 
 // create a component
 const Register = () => {
@@ -41,9 +42,7 @@ const Register = () => {
   });
 
   const RegisterHandler = () => {
-    Alert.alert(
-      JSON.stringify(registerObj)
-    );
+    Alert.alert(JSON.stringify(registerObj));
   };
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const Register = () => {
   ];
 
   const InputHandlerChange = (obj) => {
-    setRegisterObj({ ...registerObj, ...obj});
+    setRegisterObj({ ...registerObj, ...obj });
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -120,32 +119,32 @@ const Register = () => {
               Kategori
             </Text>
             <DropDown
-              getCurrentValue={(value) => InputHandlerChange({ kategori: value })}
+              getCurrentValue={(value) =>
+                InputHandlerChange({ kategori: value })
+              }
               items={items}
             />
           </View>
 
+          <FileUpload label="Foto KTP/NPWP (max 2MB)" />
+          <FileUpload label="Foto Akta Perusahaan/Surat Tugas (max 2MB)" />
+
           <Form
-            onChangeText={(value) => InputHandlerChange({ ktpNpwp: value })}
-            label="Foto KTP/NPWP (max 2MB)"
-          ></Form>
-          <Form
-            onChangeText={(value) => InputHandlerChange({ aktaSurat: value })}
-            label="Foto Akta Perusahaan/Surat Tugas (max 2MB)"
-          ></Form>
-          <Form onChangeText={(value) => InputHandlerChange({ email: value })} label="Email"></Form>
+            onChangeText={(value) => InputHandlerChange({ email: value })}
+            label="Email"
+          />
           <Form
             placeholder="*********"
             label="Kata Sandi *Min 8 Karakter"
             secureTextEntry={true}
             onChangeText={(pass) => InputHandlerChange({ kataSandi: pass })}
-          ></Form>
+          />
           <Form
             placeholder="*********"
             label="Ulangi Kata Sandi"
             secureTextEntry={true}
             onChangeText={(pass) => InputHandlerChange({ kataSandi: pass })}
-          ></Form>
+          />
           <TouchableOpacity onPress={() => RegisterHandler()}>
             <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
           </TouchableOpacity>

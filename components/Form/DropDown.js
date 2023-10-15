@@ -1,9 +1,16 @@
-import { View, Text, Alert, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Alert,
+  ScrollView,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { toscaColor } from "~/components/configs/Colors";
 import FontAwesome from "~/components/Icons";
 
-export default function DropDown({ getCurrentValue, items = []}) {
+export default function DropDown({ getCurrentValue, items = [] }) {
   const [optionValue, setOptionValue] = useState("Pilih Kategori");
   const [currentValue, setCurrentValue] = useState(null);
   const [isOpen, setOpen] = useState(false);
@@ -16,45 +23,52 @@ export default function DropDown({ getCurrentValue, items = []}) {
 
   useEffect(() => {
     getCurrentValue(currentValue);
-  }, [currentValue])
+  }, [currentValue]);
 
-//   const items = [
-//     { value: "1", label: "Option A" },
-//     { value: "2", label: "Option B" },
-//     { value: "3", label: "Option C" },
-//     { value: "4", label: "Option D" },
-//     { value: "5", label: "Option E" },
-//     { value: "6", label: "Option F" },
-//     { value: "7", label: "Option G" },
-//     { value: "8", label: "Option H" },
-//   ];
+  //   const items = [
+  //     { value: "1", label: "Option A" },
+  //     { value: "2", label: "Option B" },
+  //     { value: "3", label: "Option C" },
+  //     { value: "4", label: "Option D" },
+  //     { value: "5", label: "Option E" },
+  //     { value: "6", label: "Option F" },
+  //     { value: "7", label: "Option G" },
+  //     { value: "8", label: "Option H" },
+  //   ];
 
   return (
     <View style={{ maxHeight: 350, zIndex: 2000 }}>
-      <TouchableOpacity onPress={() => setOpen(!isOpen)}
-        style={{
-          flexDirection: "row",
-          padding: 16,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
-          borderBottomLeftRadius: isOpen ? 0 : 10,
-          borderBottomRightRadius: isOpen ? 0 : 10,
-          backgroundColor: "white",
-          justifyContent: "space-between",
-          borderBottomWidth: isOpen ? 1 : 0,
-          borderBottomColor: isOpen && "lightgrey"
-        }}
-      >
-        <Text
+      <TouchableNativeFeedback onPress={() => setOpen(!isOpen)}>
+        <View
           style={{
-            color: "#234",
-            fontSize: 16,
+            flexDirection: "row",
+            padding: 16,
+            borderTopLeftRadius: 10,
+            borderTopRightRadius: 10,
+            borderBottomLeftRadius: isOpen ? 0 : 10,
+            borderBottomRightRadius: isOpen ? 0 : 10,
+            backgroundColor: "white",
+            justifyContent: "space-between",
+            borderBottomWidth: isOpen ? 1 : 0,
+            borderBottomColor: isOpen && "lightgrey",
           }}
         >
-          {optionValue}
-        </Text>
-        <FontAwesome name={isOpen ? "chevron-up" : "chevron-down"} size={16} color={"grey"} />
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: "#234",
+              fontSize: 16,
+            }}
+          >
+            {optionValue}
+          </Text>
+          <FontAwesome
+            name={isOpen ? "chevron-up" : "chevron-down"}
+            size={16}
+            color={"grey"}
+          />
+        </View>
+      </TouchableNativeFeedback>
+
       {isOpen && (
         <ScrollView
           showsVerticalScrollIndicator={false}

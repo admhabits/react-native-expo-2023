@@ -6,20 +6,22 @@ export default function Form({
   placeholder,
   label,
   secureTextEntry = false,
+  defaultValue,
 }) {
   return (
-    <View style={{ gap: 5 }}>
+    <View style={{ gap: 5, marginBottom: 5 }}>
       <Text
         style={{
           color: "white",
           fontSize: 16,
           fontWeight: 600,
-          fontFamily: 'Inter'
+          fontFamily: "Inter",
         }}
       >
         {label}
       </Text>
       <TextInput
+        defaultValue={defaultValue}
         secureTextEntry={secureTextEntry}
         onChangeText={onChangeText}
         placeholder={placeholder}
