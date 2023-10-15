@@ -6,10 +6,29 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FontAwesome from "~/components/Icons";
+import { getDocumentAsync } from "expo-document-picker";
 
-export default function FileUpload({ label }) {
+export default function FileUpload({ label, getData }) {
+  const [document, setDocument] = useState({});
+  async function pickDocument() {
+    try {
+      const result = await getDocumentAsync({
+        type: "*/*", // or specify your desired file types like 'application/pdf'
+      });
+
+      if (!result.canceled) setDocument(result.assets[0]);
+      if (result.canceled) Alert.alert("Upload file aborted!");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getData(document);
+  }, [document]);
+
   return (
     <View style={{ gap: 5 }}>
       <Text
@@ -22,10 +41,12 @@ export default function FileUpload({ label }) {
       >
         {label}
       </Text>
-      <TouchableNativeFeedback onPress={() => Alert.alert("Upload File Base64")}>
+      <TouchableNativeFeedback onPress={async () => await pickDocument()}>
         <View style={styles.input}>
           <FontAwesome name="upload" size={20} color={"#234"} />
-          <Text style={styles.textInput}>Upload File</Text>
+          <Text style={styles.textInput}>
+            {document?.name ? document.name : "Upload File"}
+          </Text>
         </View>
       </TouchableNativeFeedback>
     </View>

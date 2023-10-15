@@ -126,8 +126,14 @@ const Register = () => {
             />
           </View>
 
-          <FileUpload label="Foto KTP/NPWP (max 2MB)" />
-          <FileUpload label="Foto Akta Perusahaan/Surat Tugas (max 2MB)" />
+          <FileUpload
+            getData={(data) => InputHandlerChange({ ktpNpwp: data?.name })}
+            label="Foto KTP/NPWP (max 2MB)"
+          />
+          <FileUpload
+            getData={(data) => InputHandlerChange({ aktaSurat: data?.name })}
+            label="Foto Akta Perusahaan/Surat Tugas (max 2MB)"
+          />
 
           <Form
             onChangeText={(value) => InputHandlerChange({ email: value })}
