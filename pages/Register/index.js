@@ -34,9 +34,13 @@ const Register = () => {
   const [kategori, setKategori] = useState("");
 
   const RegisterHandler = () => {
-      Alert.alert(JSON.stringify({
-        username, password, kategori
-      }))
+    Alert.alert(
+      JSON.stringify({
+        username,
+        password,
+        kategori,
+      })
+    );
   };
 
   useEffect(() => {
@@ -71,14 +75,16 @@ const Register = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ButtonIcon
-        name="arrow-left"
-        textSize={18}
-        size={14}
-        title="Kembali"
-        color="white"
-        onPress={() => navigation.navigate("Login")}
-      />
+      <View style={{ paddingBottom: 20 }}> 
+        <ButtonIcon
+          name="arrow-left"
+          textSize={18}
+          size={14}
+          title="Kembali"
+          color="white"
+          onPress={() => navigation.navigate("Login")}
+        />
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 20, gap: 10 }}>
           <Text style={styles.headerPage}>Daftar Akun</Text>
@@ -93,7 +99,7 @@ const Register = () => {
             label="Username"
           ></Form>
 
-          <View style={{ gap: 15, marginBottom: 15,}}>
+          <View style={{ gap: 15, marginBottom: 15 }}>
             <Text
               style={{
                 color: "white",
