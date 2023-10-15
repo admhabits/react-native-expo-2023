@@ -18,11 +18,10 @@ import { toggleRememberMe } from "~/stores/slices/AuthSlice";
 import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
-import CheckBox from "@react-native-community/checkbox";
-import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 import { ButtonIcon } from "~/components/Button";
 import Form from "~/components/Form";
+import DropDown from "~/components/Form/DropDown";
 
 // create a component
 const Register = () => {
@@ -32,16 +31,12 @@ const Register = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [kategori, setKategori] = useState("");
 
-  const LoginHandler = () => {
-    if (username == "" || password == "") {
-      Alert.alert("Masukan Username dan Password yang valid!");
-    } else {
-      console.log(username);
-      dispatch(loginUser({ username }));
-      if (rememberMe) dispatch(toggleRememberMe());
-      saveState(auth);
-    }
+  const RegisterHandler = () => {
+      Alert.alert(JSON.stringify({
+        username, password, kategori
+      }))
   };
 
   useEffect(() => {
@@ -62,11 +57,17 @@ const Register = () => {
   }, []);
 
   const navigation = useNavigation();
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigation.navigate("Home");
-    }
-  }, [isAuthenticated]);
+
+  const items = [
+    { value: "1", label: "Option A" },
+    { value: "2", label: "Option B" },
+    { value: "3", label: "Option C" },
+    { value: "4", label: "Option D" },
+    { value: "5", label: "Option E" },
+    { value: "6", label: "Option F" },
+    { value: "7", label: "Option G" },
+    { value: "8", label: "Option H" },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -91,10 +92,23 @@ const Register = () => {
             onChangeText={(user) => setUsername(user)}
             label="Username"
           ></Form>
-          <Form
-            onChangeText={(user) => setUsername(user)}
-            label="Kategori"
-          ></Form>
+
+          <View style={{ gap: 15, marginBottom: 15,}}>
+            <Text
+              style={{
+                color: "white",
+                fontSize: 16,
+                fontWeight: 600,
+                fontFamily: "Inter",
+              }}
+            >
+              Kategori
+            </Text>
+            <DropDown
+              getCurrentValue={(value) => setKategori(value)}
+              items={items}
+            />
+          </View>
 
           <Form
             onChangeText={(user) => setUsername(user)}
@@ -104,10 +118,7 @@ const Register = () => {
             onChangeText={(user) => setUsername(user)}
             label="Foto Akta Perusahaan/Surat Tugas (max 2MB)"
           ></Form>
-          <Form
-            onChangeText={(user) => setUsername(user)}
-            label="Email"
-          ></Form>
+          <Form onChangeText={(user) => setUsername(user)} label="Email"></Form>
           <Form
             placeholder="*********"
             label="Kata Sandi *Min 8 Karakter"
@@ -120,7 +131,7 @@ const Register = () => {
             secureTextEntry={true}
             onChangeText={(pass) => setPassword(pass)}
           ></Form>
-          <TouchableOpacity onPress={() => LoginHandler()}>
+          <TouchableOpacity onPress={() => RegisterHandler()}>
             <Text style={styles.btnRegisterStyle}>Daftar Akun</Text>
           </TouchableOpacity>
 

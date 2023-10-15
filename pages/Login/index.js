@@ -18,7 +18,6 @@ import { toggleRememberMe } from "~/stores/slices/AuthSlice";
 import { saveState } from "~/stores/saved/AsyncStorage";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PaddingLayout } from "~/components/configs/Layout";
-import CheckBox from "@react-native-community/checkbox";
 import Checkbox from "expo-checkbox";
 import { orangeColor } from "~/components/configs/Colors";
 import FontAwesome5 from "~/components/Icons";
