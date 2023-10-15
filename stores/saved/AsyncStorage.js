@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const saveState = async (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    await AsyncStorage.setItem("shared_preferences", serializedState);
+    await AsyncStorage.setItem("root", serializedState);
   } catch (error) {
     console.error("Error saving state to AsyncStorage:", error);
   }
@@ -16,7 +16,7 @@ export const saveState = async (state) => {
 // Load state from AsyncStorage
 export const loadState = async () => {
   try {
-    const serializedState = await AsyncStorage.getItem("shared_preferences");
+    const serializedState = await AsyncStorage.getItem("root");
     if (serializedState !== null) {
       return JSON.parse(serializedState);
     }

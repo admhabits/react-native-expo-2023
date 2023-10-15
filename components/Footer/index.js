@@ -1,5 +1,5 @@
 import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import FontAwesome from "@expo/vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
@@ -40,7 +40,28 @@ export const FloatingButton = ({ style }) => {
 
   const LogoutHandler = () => {
     dispatch(logoutUser());
-  }
+  };
+
+  useEffect( () => {
+    
+    const getLocalUserData = async () => {
+      try {
+        // Perform asynchronous operations here, for example, fetching data from an API
+        const response = await loadState();
+        console.log(response);
+      } catch (error) {
+        // Handle errors
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    getLocalUserData();
+
+    return () => {
+      // Cleanup code
+    };
+
+  }, []);
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
@@ -53,7 +74,7 @@ export const FloatingButton = ({ style }) => {
   );
 };
 
-export default function Footer({ style, float, navigation}) {
+export default function Footer({ style, float, navigation }) {
   return (
     <LinearGradient
       colors={["#28A297", "rgba(40, 162, 151, 0.5)"]}
@@ -66,7 +87,7 @@ export default function Footer({ style, float, navigation}) {
           textSize={12}
           title="Beranda"
           color="white"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate("Home")}
         />
         <ButtonIcon
           name="school"
@@ -74,7 +95,7 @@ export default function Footer({ style, float, navigation}) {
           textSize={12}
           title="Profile"
           color="white"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate("Home")}
         />
       </View>
 
@@ -85,7 +106,7 @@ export default function Footer({ style, float, navigation}) {
           textSize={12}
           title="Si DOEL"
           color="white"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate("Home")}
         />
         <ButtonIcon
           name="id-card"
@@ -93,7 +114,7 @@ export default function Footer({ style, float, navigation}) {
           textSize={12}
           title="Akun"
           color="white"
-          onPress={() => navigation.navigate('Informasi')}
+          onPress={() => navigation.navigate("Informasi")}
         />
       </View>
 
