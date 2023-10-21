@@ -10,38 +10,25 @@ import Profile from "~/pages/Profile";
 const Stack = createStackNavigator();
 
 const StackScreen = () => {
+  const routes = [
+    { name: "Home", component: Home, showHeader: false },
+    { name: "Login", component: Login, showHeader: false },
+    { name: "Pendaftaran", component: Register, showHeader: false },
+    { name: "Profile", component: Profile, showHeader: false },
+    { name: "Forgot", component: ForgotPassword, showHeader: false },
+    { name: "Informasi", component: Informasi, showHeader: false },
+  ];
+
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Forgot"
-        component={ForgotPassword}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Informasi"
-        component={Informasi}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Pendaftaran"
-        component={Register}
-        options={{ headerShown: false }}
-      />
+      {routes.map((value, key) => (
+        <Stack.Screen
+          key={key}
+          name={value.name}
+          component={value.component}
+          options={{ headerShown: value.showHeader }}
+        />
+      ))}
     </Stack.Navigator>
   );
 };
