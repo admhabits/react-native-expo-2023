@@ -95,7 +95,7 @@ export default function Footer({ style, float, navigation }) {
           textSize={12}
           title="Profile"
           color="white"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Profile")}
         />
       </View>
 

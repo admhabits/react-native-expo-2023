@@ -5,6 +5,7 @@ import Login from "~pages/Login";
 import Informasi from "~/pages/informasi";
 import Register from "~/pages/Register";
 import ForgotPassword from "~/pages/Login/Recovery";
+import Profile from "~/pages/Profile";
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const StackScreen = () => {
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
         options={{ headerShown: false }}
       />
       <Stack.Screen
