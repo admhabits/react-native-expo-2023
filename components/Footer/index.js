@@ -59,7 +59,7 @@ export default function Footer({ style, float, navigation }) {
         textSize={12}
         title="Si Doel"
         color={iconFooterColor}
-        onPress={() => navigation.navigate("Profile")}
+        onPress={() => navigation.navigate("Sidoel")}
       />
       <ButtonIcon
         name="chat"

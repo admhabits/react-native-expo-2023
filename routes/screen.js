@@ -5,8 +5,19 @@ import { RoutePath } from "~/components/configs/Routes";
 const Stack = createStackNavigator();
 
 const StackScreen = () => {
+  const forFade = ({ current }) => ({
+    cardStyle: {
+      opacity: current.progress,
+    },
+  });
+  
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyleInterpolator: forFade,
+      }}
+    >
       {RoutePath.map((value, key) => (
         <Stack.Screen
           key={key}

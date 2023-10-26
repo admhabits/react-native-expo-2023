@@ -18,39 +18,10 @@ export default function Layout({
   const HeightLayout = 80;
   const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const auth = useSelector((state) => state.auth);
-
-  console.log(auth);
-
-  useEffect(() => {
-    async function fetchLocalStorage() {
-      const initialState = await loadState();
-      console.log("==== isRememberMe ? :", initialState.rememberMe, "=====");
-      if (initialState.rememberMe) {
-        navigation.navigate("Home");
-      }
-    }
-    fetchLocalStorage();
-  }, []);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigation.navigate("Home");
-    } else {
-      navigation.navigate("Login");
-    }
-  }, [isAuthenticated]);
-
   return (
     <>
       <View style={styles.container}>
-        <Header
-          style={{
-            padding: PaddingLayout,
-            height: HeightLayout,
-          }}
-        />
+        <View style={{ height: HeightLayout }}></View>
         <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
           {children}
         </View>
@@ -63,7 +34,6 @@ export default function Layout({
             width: width
           }}
           navigation={navigation}
-          float={{ left: (width - 80) / 2 }}
         />
         <StatusBar style="light" backgroundColor={statusBar} />
       </View>

@@ -4,6 +4,7 @@ import Register from "~/pages/Register";
 import ForgotPassword from "~/pages/Login/Recovery";
 import Profile from "~/pages/Profile";
 import Home from "~/pages/Home";
+import Sidoel from "~/pages/Sidoel";
 
 export const RoutePath = [
   { name: "Home", component: Home, showHeader: false },
@@ -12,4 +13,5 @@ export const RoutePath = [
   { name: "Profile", component: Profile, showHeader: false },
   { name: "Forgot", component: ForgotPassword, showHeader: false },
   { name: "Informasi", component: Informasi, showHeader: false },
+  { name: "Sidoel", component: Sidoel, showHeader: false },
 ];

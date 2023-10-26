@@ -19,6 +19,7 @@ import {
 } from "~/components/configs/Layout";
 import FontAwesome from "~/components/Icons";
 import { useNavigation } from "@react-navigation/native";
+import { toscaColor } from "~/components/configs/Colors";
 
 const CardMenu = ({
   iconName,
@@ -201,7 +202,7 @@ const BeritaHubla = () => {
 
 const Home = ({ navigation }) => {
   return (
-    <LayoutScreen statusBar={textPrimary} navigation={navigation}>
+    <LayoutScreen statusBar={toscaColor} navigation={navigation}>
       <ScrollView style={{ marginTop: -1 }}>
         <SwiperHome />
         <MenuHome />
