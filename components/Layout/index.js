@@ -15,8 +15,8 @@ export default function Layout({
 }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
-  const HeightLayout = 80;
-  const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
+  const HeightLayout = 70;
+  const CalculateHeight = HeightLayout * 2;
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const auth = useSelector((state) => state.auth);
@@ -63,7 +63,6 @@ export default function Layout({
             width: width
           }}
           navigation={navigation}
-          float={{ left: (width - 80) / 2 }}
         />
         <StatusBar style="light" backgroundColor={statusBar} />
       </View>

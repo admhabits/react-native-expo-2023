@@ -203,7 +203,7 @@ const BeritaHubla = () => {
 const Home = ({ navigation }) => {
   return (
     <LayoutScreen statusBar={toscaColor} navigation={navigation}>
-      <ScrollView style={{ marginTop: -1 }}>
+      <ScrollView style={{ marginBottom: 25 }}>
         <SwiperHome />
         <MenuHome />
         <BeritaHubla />

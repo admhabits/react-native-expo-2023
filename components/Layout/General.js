@@ -17,15 +17,15 @@ export default function Layout({
 }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
-  const HeightLayout = 80;
-  const CalculateHeight = (PaddingLayout + HeightLayout) * 2;
+  const HeightLayout = 70;
+  const CalculateHeight = HeightLayout * 2;
 
   return (
     <>
       <View style={styles.container}>
         <View
           style={{
-            height: 60,
+            height: HeightLayout,
             backgroundColor: secondary,
             flexDirection: "row",
             alignItems: "center",
