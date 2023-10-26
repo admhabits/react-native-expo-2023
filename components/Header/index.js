@@ -14,7 +14,7 @@ export default function Header({ style }) {
   return (
     <>
       <LinearBackground
-        colors={[toscaColor, secondary]}
+        colors={[secondary, secondary]}
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>

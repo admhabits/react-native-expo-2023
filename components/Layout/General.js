@@ -3,15 +3,17 @@ import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
-import { textPrimary } from "../configs/Colors";
+import { textPrimary, secondary } from "../configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { loadState } from "~/stores/saved/AsyncStorage";
 import { updateRememberMe } from "~/stores/slices/AuthSlice";
+import FontAwesome from "~/components/Icons";
 
 export default function Layout({
   children,
   statusBar = textPrimary,
   navigation,
+  titlePage,
 }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
@@ -21,7 +23,28 @@ export default function Layout({
   return (
     <>
       <View style={styles.container}>
-        <View style={{ height: HeightLayout }}></View>
+        <View
+          style={{
+            height: 60,
+            backgroundColor: secondary,
+            flexDirection: "row",
+            alignItems: "center",
+            padding: 15,
+            gap: 15,
+          }}
+        >
+          <FontAwesome name="chevron-left" size={16} color={"white"} />
+          <Text
+            style={{
+              fontSize: 20,
+              color: "white",
+              fontWeight: "bold",
+              fontFamily: "Roboto",
+            }}
+          >
+            {titlePage}
+          </Text>
+        </View>
         <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
           {children}
         </View>
@@ -29,9 +52,9 @@ export default function Layout({
           style={{
             padding: PaddingLayout,
             height: HeightLayout,
-            position: 'absolute', 
+            position: "absolute",
             bottom: 0,
-            width: width
+            width: width,
           }}
           navigation={navigation}
         />

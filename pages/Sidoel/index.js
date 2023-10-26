@@ -7,9 +7,12 @@ import Layout from "~/components/Layout/General";
 // create a component
 const Sidoel = ({ navigation }) => {
   return (
-    <Layout statusBar={toscaColor} navigation={navigation}>
-      <ScrollView style={{ marginTop: -1 }}>
-      </ScrollView>
+    <Layout
+      statusBar={toscaColor}
+      navigation={navigation}
+      titlePage={"SI DOEL"}
+    >
+      <ScrollView></ScrollView>
     </Layout>
   );
 };
