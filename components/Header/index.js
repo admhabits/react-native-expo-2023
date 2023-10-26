@@ -1,14 +1,15 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import { logoHubla, iconSearch } from "../configs/Images";
-import FontAwesome from "@expo/vector-icons/FontAwesome5";
+import FontAwesome from "@expo/vector-icons/MaterialIcons";
 import { LinearBackground } from "../configs/LinearBackground";
 import { primary, secondary, textPrimary, toscaColor } from "../configs/Colors";
 import { useSelector } from "react-redux";
 
 export default function Header({ style }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isLocal, setIsLocal] = useState('id')
+  const [isLocal, setIsLocal] = useState("id");
+  const [showSearch, setShowSearch] = useState(false);
   const count = useSelector((state) => state.counter.value);
   return (
     <>
@@ -20,22 +21,48 @@ export default function Header({ style }) {
           <Image source={logoHubla} style={styles.logo} />
           <Text style={styles.title}>KEMENTRIAN PERHUBUNGAN LAUT</Text>
         </View>
-        <TouchableOpacity onPress={() => setIsDarkMode(!isDarkMode)}>
-          {/* <FontAwesome
-            name={isDarkMode ? "sun" : "moon"}
-            size={20}
-            color={isDarkMode ? "#fff" : "#F0F0F0"}
-          /> */}
-          <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 5 }}>
-            <TouchableOpacity onPress={() => setIsLocal('id')}>
-              <Text style={{ ...styles.localizationText, color: isLocal == 'id' ? 'white' : textPrimary}}>ID</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            position: "relative",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <TouchableOpacity onPress={() => setShowSearch(true)}>
+            <FontAwesome
+              name={"search"}
+              size={20}
+              style={{ marginRight: 15, marginTop: 4 }}
+              color={"white"}
+            />
+          </TouchableOpacity>
+          <View
+            style={{ flexDirection: "row", justifyContent: "center", gap: 5 }}
+          >
+            <TouchableOpacity onPress={() => setIsLocal("id")}>
+              <Text
+                style={{
+                  ...styles.localizationText,
+                  color: isLocal == "id" ? "white" : textPrimary,
+                }}
+              >
+                ID
+              </Text>
             </TouchableOpacity>
             <Text style={styles.localizationText}>/</Text>
-            <TouchableOpacity onPress={() => setIsLocal('en')}>
-              <Text style={{ ...styles.localizationText, color: isLocal == 'en' ? 'white' : textPrimary}}>EN</Text>
+            <TouchableOpacity onPress={() => setIsLocal("en")}>
+              <Text
+                style={{
+                  ...styles.localizationText,
+                  color: isLocal == "en" ? "white" : textPrimary,
+                }}
+              >
+                EN
+              </Text>
             </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </View>
       </LinearBackground>
     </>
   );
@@ -64,12 +91,12 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: "Montserrat",
-    fontSize: 16,
-    color: textPrimary
+    fontSize: 14,
+    color: textPrimary,
   },
   localizationText: {
     fontFamily: "Montserrat",
     fontSize: 18,
     color: textPrimary,
-  }
+  },
 });

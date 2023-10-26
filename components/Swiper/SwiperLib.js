@@ -40,11 +40,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "lightblue",
-    maxHeight: 250,
-    width: width - 60,
-    borderRadius: 20,
-    objectFit: "contain",
-    marginHorizontal: 10,
+    width: width,
+    objectFit: "cover",
   },
 });
 

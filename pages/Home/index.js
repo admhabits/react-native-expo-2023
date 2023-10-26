@@ -18,6 +18,7 @@ import {
   PaddingLayout,
 } from "~/components/configs/Layout";
 import FontAwesome from "~/components/Icons";
+import { useNavigation } from "@react-navigation/native";
 
 const CardMenu = ({
   iconName,
@@ -28,81 +29,127 @@ const CardMenu = ({
   titleCard,
   titleColor,
   backgroundColor,
+  onPress,
 }) => {
   return (
-    <TouchableOpacity style={{ ...styles.cardMenu, backgroundColor }}>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
+    <TouchableOpacity
+      style={{
+        height: 80,
+        width: 80,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onPress={onPress}
+    >
+      <View style={{ ...styles.cardMenu, backgroundColor }}>
         <FontAwesome name={iconName} color={iconColor} size={iconSize} />
-        <Text
-          style={{
-            fontSize,
-            fontFamily,
-            fontWeight: "bold",
-            marginTop: 1,
-            color: titleColor,
-          }}
-        >
-          {titleCard}
-        </Text>
       </View>
+      <Text
+        style={{
+          fontSize,
+          fontFamily,
+          fontWeight: "bold",
+          marginTop: 4,
+          color: titleColor,
+        }}
+      >
+        {titleCard}
+      </Text>
     </TouchableOpacity>
   );
 };
 
 const MenuHome = () => {
+  const navigation = useNavigation();
+  const iconSizeCardMenu = 20;
+  const heightCardMenuContainer = 190;
   return (
     <View
       style={{
-        borderTopLeftRadius: 24,
-        borderTopRightRadius: 24,
-        height: 110,
-        backgroundColor: "white",
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        height: heightCardMenuContainer,
+        backgroundColor: "transparent",
         marginTop: 0,
         padding: PaddingLayout,
       }}
     >
-      <View style={{ gap: 10, flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <CardMenu
           iconName={"camera-retro"}
           iconColor={"white"}
-          iconSize={30}
+          iconSize={iconSizeCardMenu}
           fontSize={12}
           fontFamily={"Inter"}
           titleCard={"Galeri Photo"}
           backgroundColor={"#3C9DE2"}
-          titleColor={"white"}
+          titleColor={"#234"}
         />
 
         <CardMenu
           iconName={"info-circle"}
           iconColor={"white"}
-          iconSize={30}
+          iconSize={iconSizeCardMenu}
           fontSize={12}
           fontFamily={"Inter"}
           titleCard={"Informasi"}
           backgroundColor={"#CB5C5D"}
-          titleColor={"white"}
+          onPress={() => navigation.navigate("Informasi")}
+          titleColor={"#234"}
         />
         <CardMenu
           iconName={"file-signature"}
           iconColor={"white"}
-          iconSize={30}
+          iconSize={iconSizeCardMenu}
           fontSize={12}
           fontFamily={"Inter"}
           titleCard={"Perjanjian"}
           backgroundColor={"#FDA53C"}
-          titleColor={"white"}
+          titleColor={"#234"}
         />
         <CardMenu
           iconName={"box-open"}
           iconColor={"white"}
-          iconSize={30}
+          iconSize={iconSizeCardMenu}
           fontSize={12}
           fontFamily={"Inter"}
           titleCard={"Lainnya"}
           backgroundColor={"#0075CB"}
-          titleColor={"white"}
+          titleColor={"#234"}
         />
+      </View>
+      <View
+        style={{
+          marginTop: 20,
+          borderBottomColor: "grey",
+          borderBottomWidth: 1,
+        }}
+      ></View>
+      <View style={{ marginTop: 20 }}>
+        <Text
+          style={{
+            fontFamily: "Roboto",
+            fontSize: 20,
+            fontWeight: "bold",
+            textTransform: "capitalize",
+            textAlign: 'center',
+            color: textPrimary
+          }}
+        >
+          Sistem Portal Perhubungan Laut Informatif
+        </Text>
+        <Text
+          style={{
+            fontFamily: "Roboto",
+            fontSize: 20,
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            textAlign: 'center',
+            color: textPrimary
+          }}
+        >
+          {"(SPORTIF)"}
+        </Text>
       </View>
     </View>
   );
@@ -180,11 +227,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   cardMenu: {
-    height: 60,
-    width: FourColumnWidth,
+    height: 65,
+    width: 65,
     backgroundColor: "#F0F0F0",
     flex: 1,
-    borderRadius: 8,
+    borderRadius: 100,
     padding: 10,
     justifyContent: "center",
     alignItems: "center",
