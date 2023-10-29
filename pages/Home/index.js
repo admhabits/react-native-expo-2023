@@ -36,7 +36,7 @@ const CardMenu = ({
     <TouchableOpacity
       style={{
         height: 80,
-        width: 80,
+        width: 60,
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -106,6 +106,17 @@ const MenuHome = () => {
           fontFamily={"Inter"}
           titleCard={"Perjanjian"}
           backgroundColor={"#FDA53C"}
+          titleColor={"#234"}
+        />
+         <CardMenu
+          iconName={"user"}
+          iconColor={"white"}
+          iconSize={iconSizeCardMenu}
+          fontSize={12}
+          fontFamily={"Inter"}
+          titleCard={"Profile PPID"}
+          backgroundColor={toscaColor}
+          onPress={() => navigation.navigate("Profile")}
           titleColor={"#234"}
         />
         <CardMenu
