@@ -43,7 +43,7 @@ export default function Layout({
             style={{ 
               flexDirection: "row",
               alignItems: "center",
-              padding: 15,
+              padding: 24,
               gap: 15,
              }}
           >
