@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
-import { textPrimary, secondary } from "../configs/Colors";
+import { textPrimary, secondary, backgroundPrimary } from "../configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { loadState } from "~/stores/saved/AsyncStorage";
 import { updateRememberMe } from "~/stores/slices/AuthSlice";
@@ -35,33 +35,37 @@ export default function Layout({
             backgroundColor: secondary,
             flexDirection: "row",
             alignItems: "center",
-           
           }}
         >
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
-            style={{ 
+            style={{
               flexDirection: "row",
               alignItems: "center",
               padding: 24,
               gap: 15,
-             }}
-          >
-             <FontAwesome name="chevron-left" size={16} color={"white"} />
-          <Text
-            style={{
-              fontSize: 20,
-              color: "white",
-              fontWeight: "bold",
-              fontFamily: "Roboto",
             }}
           >
-            {titlePage}
-          </Text>
+            <FontAwesome name="chevron-left" size={16} color={"white"} />
+            <Text
+              style={{
+                fontSize: 20,
+                color: "white",
+                fontWeight: "bold",
+                fontFamily: "Roboto",
+              }}
+            >
+              {titlePage}
+            </Text>
           </TouchableOpacity>
-         
         </View>
-        <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
+        <View
+          style={{
+            height: height - CalculateHeight,
+            paddingBottom: 10,
+            backgroundColor: backgroundPrimary,
+          }}
+        >
           {children}
         </View>
         <Footer

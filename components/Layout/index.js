@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 import { StatusBar } from "expo-status-bar";
-import { textPrimary } from "../configs/Colors";
+import { backgroundPrimary, textPrimary } from "../configs/Colors";
 import { useDispatch, useSelector } from "react-redux";
 import { loadState } from "~/stores/saved/AsyncStorage";
 import { updateRememberMe } from "~/stores/slices/AuthSlice";
@@ -51,16 +51,22 @@ export default function Layout({
             height: HeightLayout,
           }}
         />
-        <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
+        <View
+          style={{
+            height: height - CalculateHeight,
+            paddingBottom: 10,
+            backgroundColor: backgroundPrimary,
+          }}
+        >
           {children}
         </View>
         <Footer
           style={{
             padding: PaddingLayout,
             height: HeightLayout,
-            position: 'absolute', 
+            position: "absolute",
             bottom: 0,
-            width: width
+            width: width,
           }}
           navigation={navigation}
         />
