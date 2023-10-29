@@ -1,22 +1,31 @@
-import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+//import liraries
 import { toscaColor } from "~/components/configs/Colors";
-import { PaddingLayout } from "~/components/configs/Layout";
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import Layout from "~/components/Layout/General";
 
-export default function Profile() {
+// create a component
+const Profile = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Profile</Text>
-    </View>
+    <Layout
+      statusBar={toscaColor}
+      navigation={navigation}
+      titlePage={"Profil PPID"}
+    >
+      <ScrollView></ScrollView>
+    </Layout>
   );
-}
+};
 
+// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: 'center',
-    backgroundColor: toscaColor,
-    padding: PaddingLayout + 10,
+    alignItems: "center",
+    backgroundColor: "#2c3e50",
   },
 });
+
+//make this component available to the app
+export default Profile;

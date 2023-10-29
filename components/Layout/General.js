@@ -1,4 +1,10 @@
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
@@ -29,11 +35,19 @@ export default function Layout({
             backgroundColor: secondary,
             flexDirection: "row",
             alignItems: "center",
-            padding: 15,
-            gap: 15,
+           
           }}
         >
-          <FontAwesome name="chevron-left" size={16} color={"white"} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+            style={{ 
+              flexDirection: "row",
+              alignItems: "center",
+              padding: 15,
+              gap: 15,
+             }}
+          >
+             <FontAwesome name="chevron-left" size={16} color={"white"} />
           <Text
             style={{
               fontSize: 20,
@@ -44,6 +58,8 @@ export default function Layout({
           >
             {titlePage}
           </Text>
+          </TouchableOpacity>
+         
         </View>
         <View style={{ height: height - CalculateHeight, paddingBottom: 10 }}>
           {children}
