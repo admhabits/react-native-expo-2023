@@ -190,7 +190,7 @@ const UnitKerja = () => {
   );
 };
 
-const BeritaItem = ({ imgSrc, headline }) => {
+const BeritaItem = ({ imgSrc, onPress, headline }) => {
   return (
     <View style={{ ...styles.cardBerita, flexDirection: "column" }}>
       <Image
@@ -202,19 +202,21 @@ const BeritaItem = ({ imgSrc, headline }) => {
           borderRadius: 10,
         }}
       />
-      <Text
-        style={{
-          zIndex: 200,
-          position: "absolute",
-          bottom: -40,
-          fontSize: 18,
-          fontFamily: "Montserrat",
-          textTransform: "capitalize",
-          color: textPrimary,
-        }}
-      >
-        {headline}
-      </Text>
+      <TouchableOpacity onPress={onPress}>
+        <Text
+          style={{
+            zIndex: 200,
+            position: "absolute",
+            bottom: -40,
+            fontSize: 18,
+            fontFamily: "Montserrat",
+            textTransform: "capitalize",
+            color: textPrimary,
+          }}
+        >
+          {headline}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -240,7 +242,7 @@ const BeritaHubla = () => {
             imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
             headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
           />
-           <BeritaItem
+          <BeritaItem
             imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
             headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
           />
