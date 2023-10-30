@@ -5,6 +5,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React, { useEffect } from "react";
 import LayoutScreen from "~/components/Layout";
@@ -108,7 +109,7 @@ const MenuHome = () => {
           backgroundColor={"#FDA53C"}
           titleColor={"#234"}
         />
-         <CardMenu
+        <CardMenu
           iconName={"user"}
           iconColor={"white"}
           iconSize={iconSizeCardMenu}
@@ -144,8 +145,8 @@ const MenuHome = () => {
             fontSize: 20,
             fontWeight: "bold",
             textTransform: "capitalize",
-            textAlign: 'center',
-            color: textPrimary
+            textAlign: "center",
+            color: textPrimary,
           }}
         >
           Sistem Portal Perhubungan Laut Informatif
@@ -156,8 +157,8 @@ const MenuHome = () => {
             fontSize: 20,
             fontWeight: "bold",
             textTransform: "uppercase",
-            textAlign: 'center',
-            color: textPrimary
+            textAlign: "center",
+            color: textPrimary,
           }}
         >
           {"(SPORTIF)"}
@@ -189,11 +190,40 @@ const UnitKerja = () => {
   );
 };
 
+const BeritaItem = ({ imgSrc, headline }) => {
+  return (
+    <View style={{ ...styles.cardBerita, flexDirection: "column" }}>
+      <Image
+        source={imgSrc}
+        style={{
+          width: "100%",
+          height: 200,
+          resizeMode: "contain",
+          borderRadius: 10,
+        }}
+      />
+      <Text
+        style={{
+          zIndex: 200,
+          position: "absolute",
+          bottom: -40,
+          fontSize: 18,
+          fontFamily: "Montserrat",
+          textTransform: "capitalize",
+          color: textPrimary,
+        }}
+      >
+        {headline}
+      </Text>
+    </View>
+  );
+};
+
 const BeritaHubla = () => {
   return (
     <View
       style={{
-        height: 280,
+        height: 350,
         backgroundColor: "white",
         marginTop: 15,
         padding: 20,
@@ -202,9 +232,20 @@ const BeritaHubla = () => {
       <Text style={styles.textHeading}>Berita Terbaru</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
-          <View style={styles.cardBerita}></View>
-          <View style={styles.cardBerita}></View>
-          <View style={styles.cardBerita}></View>
+          <BeritaItem
+            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+          />
+          <BeritaItem
+            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+          />
+           <BeritaItem
+            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+          />
+          {/* <View style={styles.cardBerita}></View>
+          <View style={styles.cardBerita}></View> */}
         </View>
       </ScrollView>
     </View>
