@@ -96,7 +96,7 @@ const MenuHome = () => {
           fontFamily={"Inter"}
           titleCard={"Informasi"}
           backgroundColor={"#CB5C5D"}
-          onPress={() => navigation.navigate("Informasi")}
+          onPress={() => navigation.navigate("VisiMisi")}
           titleColor={"#234"}
         />
         <CardMenu

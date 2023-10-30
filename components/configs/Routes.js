@@ -5,6 +5,7 @@ import ForgotPassword from "~/pages/Login/Recovery";
 import Profile from "~/pages/Profile";
 import Home from "~/pages/Home";
 import Sidoel from "~/pages/Sidoel";
+import VisiMisi from "~/pages/Profile/Menu/VisiMisi";
 
 export const RoutePath = [
   { name: "Home", component: Home, showHeader: false },
@@ -14,4 +15,5 @@ export const RoutePath = [
   { name: "Forgot", component: ForgotPassword, showHeader: false },
   { name: "Informasi", component: Informasi, showHeader: false },
   { name: "Sidoel", component: Sidoel, showHeader: false },
+  { name: "VisiMisi", component: VisiMisi, showHeader: false },
 ];
