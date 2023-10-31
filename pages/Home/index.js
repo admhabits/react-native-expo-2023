@@ -21,6 +21,7 @@ import {
 import FontAwesome from "~/components/Icons";
 import { useNavigation } from "@react-navigation/native";
 import { toscaColor } from "~/components/configs/Colors";
+import { backgroundPrimary } from "~/components/configs/Colors";
 
 const CardMenu = ({
   iconName,
@@ -134,7 +135,7 @@ const MenuHome = () => {
       <View
         style={{
           marginTop: 20,
-          borderBottomColor: "grey",
+          borderBottomColor: toscaColor,
           borderBottomWidth: 1,
         }}
       ></View>
@@ -192,32 +193,51 @@ const UnitKerja = () => {
 
 const BeritaItem = ({ imgSrc, onPress, headline }) => {
   return (
-    <View style={{ ...styles.cardBerita, flexDirection: "column" }}>
+    <>
       <Image
         source={imgSrc}
         style={{
           width: "100%",
-          height: 200,
+          height: 155,
           resizeMode: "contain",
-          borderRadius: 10,
         }}
       />
-      <TouchableOpacity onPress={onPress}>
-        <Text
-          style={{
-            zIndex: 200,
-            position: "absolute",
-            bottom: -40,
-            fontSize: 18,
-            fontFamily: "Montserrat",
-            textTransform: "capitalize",
-            color: textPrimary,
-          }}
-        >
-          {headline}
-        </Text>
-      </TouchableOpacity>
-    </View>
+      <View
+        style={{
+          ...styles.cardBerita,
+          flexDirection: "column",
+          padding: 10,
+        }}
+      >
+        <TouchableOpacity onPress={onPress} style={{ gap: 8 }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontFamily: "Montserrat",
+              textTransform: "capitalize",
+              color: textPrimary,
+              textAlign: "justify",
+              fontWeight: 'bold',
+              lineHeight: 20,
+            }}
+          >
+            {headline.length == 100 ? headline.slice(0, 100) + "..." : headline}
+          </Text>
+          <Text
+            style={{
+              fontSize: 12,
+              fontFamily: "Montserrat",
+              color: textPrimary,
+              textAlign: "justify",
+            }}
+          >
+            BEKASI (22/8) - Kementerian Perhubungan cq Direktorat Jenderal
+            Perhubungan Laut melalui Direktorat Kenavigasian berkomitmen untuk
+            selal...
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 
@@ -226,28 +246,47 @@ const BeritaHubla = () => {
     <View
       style={{
         height: 350,
-        backgroundColor: "white",
         marginTop: 15,
         padding: 20,
       }}
     >
-      <Text style={styles.textHeading}>Berita Terbaru</Text>
+      <View
+        style={{
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <Text style={styles.textHeading}>Berita Terbaru</Text>
+        <TouchableOpacity
+          style={{ flexDirection: "row", gap: 8, alignItems: "center" }}
+        >
+          <Text style={{ ...styles.textHeading, color: toscaColor }}>
+            Berita Lainnya
+          </Text>
+          <FontAwesome name="chevron-right" size={16} color={toscaColor} />
+        </TouchableOpacity>
+      </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 20, gap: 20, flexDirection: "row" }}>
-          <BeritaItem
-            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
-            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
-          />
-          <BeritaItem
-            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
-            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
-          />
-          <BeritaItem
-            imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
-            headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
-          />
-          {/* <View style={styles.cardBerita}></View>
-          <View style={styles.cardBerita}></View> */}
+          <View style={{ backgroundColor: "white" }}>
+            <BeritaItem
+              imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+              headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+            />
+          </View>
+          <View style={{ backgroundColor: "white" }}>
+            <BeritaItem
+              imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+              headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+            />
+          </View>
+          <View style={{ backgroundColor: "white" }}>
+            <BeritaItem
+              imgSrc={require("~/assets/images/berita/berita-terbaru-1.png")}
+              headline={"Dorong Kemajuan Konektivitas Daerah, Kemenhub ..."}
+            />
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -257,7 +296,10 @@ const BeritaHubla = () => {
 const Home = ({ navigation }) => {
   return (
     <LayoutScreen statusBar={toscaColor} navigation={navigation}>
-      <ScrollView style={{ marginBottom: 25, marginTop: -1 }} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={{ marginBottom: 25, marginTop: -1 }}
+        showsVerticalScrollIndicator={false}
+      >
         <SwiperHome />
         <MenuHome />
         <BeritaHubla />
@@ -301,14 +343,13 @@ const styles = StyleSheet.create({
   cardBerita: {
     height: 200,
     width: ThreeColumnWidth + 120,
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "white",
     flex: 1,
-    borderRadius: 8,
   },
   textHeading: {
     fontFamily: "Montserrat",
     textTransform: "capitalize",
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     color: textPrimary,
   },
