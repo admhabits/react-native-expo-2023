@@ -24,6 +24,7 @@ import { toscaColor } from "~/components/configs/Colors";
 import { backgroundPrimary } from "~/components/configs/Colors";
 import UnitKerja from "./Unitkerja";
 import BeritaHubla from "./Berita";
+import FeatureMenu from "./Feature";
 
 const CardMenu = ({
   iconName,
@@ -181,6 +182,7 @@ const Home = ({ navigation }) => {
         <SwiperHome />
         <HeadlineMenu />
         <BeritaHubla />
+        <FeatureMenu/>
         <UnitKerja />
       </ScrollView>
     </LayoutScreen>
