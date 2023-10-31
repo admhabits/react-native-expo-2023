@@ -257,7 +257,7 @@ const BeritaHubla = () => {
 const Home = ({ navigation }) => {
   return (
     <LayoutScreen statusBar={toscaColor} navigation={navigation}>
-      <ScrollView style={{ marginBottom: 25, marginTop: -1 }}>
+      <ScrollView style={{ marginBottom: 25, marginTop: -1 }} showsVerticalScrollIndicator={false}>
         <SwiperHome />
         <MenuHome />
         <BeritaHubla />

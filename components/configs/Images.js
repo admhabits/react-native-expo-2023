@@ -54,3 +54,5 @@ export {default as Slide1} from '~/assets/images/slide-1.png';
 export {default as Slide2} from '~/assets/images/slide-2.png';
 export {default as map} from '~/assets/images/map.png';
 export {default as ImagesFlowPermohonan} from '~/assets/images/image-flow-permohonan.png';
+export {default as headerLogo} from '~/assets/logo/header.png';
+export {default as banner1} from '~/assets/images/berita/berita-terbaru-2.png';

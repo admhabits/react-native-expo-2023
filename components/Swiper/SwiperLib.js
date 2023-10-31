@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from "react-native";
 import Swiper from "react-native-swiper";
-import { Slide1, Slide2 } from "../configs/Images";
+import { Slide1, banner1 } from "../configs/Images";
 
 const { width } = Dimensions.get("window");
 
@@ -22,10 +22,10 @@ const SwiperLib = () => {
       style={styles.swiper}
     >
       <View style={{ ...styles.slide, position: "relative" }}>
-        <Image source={Slide1} style={{ ...styles.slide }} />
+        <Image source={banner1} style={{ ...styles.slide }} />
       </View>
       <View style={{ ...styles.slide, position: "relative" }}>
-        <Image source={Slide2} style={styles.slide} />
+        <Image source={Slide1} style={styles.slide} />
       </View>
     </Swiper>
   );

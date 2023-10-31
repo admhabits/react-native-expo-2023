@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
-import { logoHubla, iconSearch } from "../configs/Images";
+import { logoHubla, iconSearch, headerLogo } from "../configs/Images";
 import FontAwesome from "@expo/vector-icons/MaterialIcons";
 import { LinearBackground } from "../configs/LinearBackground";
 import { primary, secondary, textPrimary, toscaColor } from "../configs/Colors";
@@ -18,8 +18,8 @@ export default function Header({ style }) {
         style={{ ...styles.header, ...style }}
       >
         <View style={styles.brand}>
-          <Image source={logoHubla} style={styles.logo} />
-          <Text style={styles.title}>KEMENTRIAN PERHUBUNGAN LAUT</Text>
+          <Image source={headerLogo} style={styles.logo} />
+          {/* <Text style={styles.title}>KEMENTRIAN PERHUBUNGAN LAUT</Text> */}
         </View>
         <View
           style={{
@@ -84,8 +84,9 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 30,
+    width: 285,
     height: 31,
+    resizeMode: 'contain',
     marginRight: 5,
   },
 
