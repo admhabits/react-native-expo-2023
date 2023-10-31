@@ -64,7 +64,7 @@ const CardMenu = ({
   );
 };
 
-const MenuHome = () => {
+const HeadlineMenu = () => {
   const navigation = useNavigation();
   const iconSizeCardMenu = 20;
   const heightCardMenuContainer = 190;
@@ -179,7 +179,7 @@ const Home = ({ navigation }) => {
         showsVerticalScrollIndicator={false}
       >
         <SwiperHome />
-        <MenuHome />
+        <HeadlineMenu />
         <BeritaHubla />
         <UnitKerja />
       </ScrollView>
