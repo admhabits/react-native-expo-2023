@@ -259,12 +259,12 @@ const BeritaHubla = () => {
       >
         <Text style={styles.textHeading}>Berita Terbaru</Text>
         <TouchableOpacity
-          style={{ flexDirection: "row", gap: 8, alignItems: "center" }}
+          style={{ flexDirection: "row", gap: 5, alignItems: "center" }}
         >
           <Text style={{ ...styles.textHeading, color: toscaColor }}>
             Berita Lainnya
           </Text>
-          <FontAwesome name="chevron-right" size={16} color={toscaColor} />
+          <FontAwesome name="chevron-right" size={12} color={toscaColor} />
         </TouchableOpacity>
       </View>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
   textHeading: {
     fontFamily: "Montserrat",
     textTransform: "capitalize",
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
     color: textPrimary,
   },
