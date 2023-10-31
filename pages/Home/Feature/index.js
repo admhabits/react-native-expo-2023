@@ -46,9 +46,9 @@ const FeatureMenu = () => {
   return (
     <View
       style={{
-        height: 180,
+        height: 170,
         backgroundColor: "transparent",
-        paddingVertical: 5,
+        paddingVertical: 0,
         paddingHorizontal: 20,
       }}
     >
