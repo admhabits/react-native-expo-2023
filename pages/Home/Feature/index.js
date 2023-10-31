@@ -69,15 +69,17 @@ const FeatureMenu = () => {
             title={"Permohonan Informasi"}
             color={orangeColor}
             styleIcon={{ 
-              width: 70,
-              height: 56,
+              width: 90,
+              height: 66,
+              top: 60,
+              left: 20,
              }}
           />
           <CardButton
             imgSrc={require("~/assets/menu/features/icon2.png")}
             styleIcon={{ 
               width: 100,
-              height: 56,
+              height: 70,
               left: '20%'
              }}
             title={"Aplikasi Online"}
