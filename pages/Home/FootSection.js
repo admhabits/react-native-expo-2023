@@ -19,7 +19,7 @@ const FootSection = () => {
           }}
         />
       </View>
-      <View style={{ backgroundColor: "#15224E", height: 120, padding: 20 }}>
+      <View style={{ backgroundColor: "#15224E", height: 100, padding: 20 }}>
         <Text
           style={{
             color: "white",
