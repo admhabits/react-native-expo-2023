@@ -23,7 +23,7 @@ const FootSection = () => {
         <Text
           style={{
             color: "white",
-            fontFamily: "Roboto",
+            fontFamily: "Montserrat",
             fontSize: 14,
             textAlign: "center",
           }}
