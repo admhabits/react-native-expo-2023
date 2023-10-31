@@ -1,7 +1,9 @@
 //import liraries
 import { toscaColor, textPrimary } from "~/components/configs/Colors";
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import FontAwesome from "~/components/Icons";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native";
+import { ThreeColumnWidth } from "~/components/configs/Layout";
 
 // create a component
 const BeritaItem = ({ imgSrc, onPress, headline }) => {
@@ -114,6 +116,19 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: textPrimary,
+  },
+  cardHome: {
+    height: 120,
+    width: ThreeColumnWidth,
+    backgroundColor: "#F0F0F0",
+    flex: 1,
+    borderRadius: 8,
+  },
+  cardBerita: {
+    height: 200,
+    width: ThreeColumnWidth + 120,
+    backgroundColor: "white",
+    flex: 1,
   },
 });
 

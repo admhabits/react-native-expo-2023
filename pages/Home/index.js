@@ -211,19 +211,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  cardHome: {
-    height: 120,
-    width: ThreeColumnWidth,
-    backgroundColor: "#F0F0F0",
-    flex: 1,
-    borderRadius: 8,
-  },
-  cardBerita: {
-    height: 200,
-    width: ThreeColumnWidth + 120,
-    backgroundColor: "white",
-    flex: 1,
-  },
   textHeading: {
     fontFamily: "Montserrat",
     textTransform: "capitalize",

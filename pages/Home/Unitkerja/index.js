@@ -1,6 +1,8 @@
 //import liraries
+import { textPrimary } from "~/components/configs/Colors";
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { ThreeColumnWidth } from "~/components/configs/Layout";
 
 // create a component
 const UnitKerja = () => {
