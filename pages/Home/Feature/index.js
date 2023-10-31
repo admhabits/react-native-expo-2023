@@ -12,9 +12,9 @@ import {
 import { ThreeColumnWidth } from "~/components/configs/Layout";
 import { orangeColor } from "~/components/configs/Colors";
 
-const CardButton = ({ title, color, imgSrc }) => {
+const CardButton = ({ title, color, imgSrc, styleIcon }) => {
   return (
-    <View style={{ ...styles.cardHome, backgroundColor: color,}}>
+    <View style={{ ...styles.cardHome, backgroundColor: color }}>
       <TouchableOpacity>
         <Text
           style={{
@@ -31,12 +31,13 @@ const CardButton = ({ title, color, imgSrc }) => {
       <Image
         source={imgSrc}
         style={{
-          width: 70,
-          height: 64,
+          ...styleIcon,
           position: "absolute",
-          right: '40%',
+          right: "40%",
           bottom: 30,
-        }}/>
+          resizeMode: "contain",
+        }}
+      />
       <Image
         source={require("~/assets/menu/hubla-grey.png")}
         style={{
@@ -63,14 +64,79 @@ const FeatureMenu = () => {
     >
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 10, gap: 20, flexDirection: "row" }}>
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Permohonan Informasi"} color={orangeColor} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Aplikasi Online"} color={"#255D78"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Newsletter Hubla"} color={"#15756A"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Berita Hubla"} color={"#903055"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Rencana Anggaran Kerja"} color={"#808080"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Kerjasama Luar Negeri"} color={"#15224E"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Tol Laut"} color={"#15224E"} />
-          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Hublapedia"} color={"#15756A"} />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Permohonan Informasi"}
+            color={orangeColor}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon2.png")}
+            styleIcon={{ 
+              width: 100,
+              height: 56,
+              left: '20%'
+             }}
+            title={"Aplikasi Online"}
+            color={"#255D78"}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon3.png")}
+            title={"Newsletter Hubla"}
+            color={"#15756A"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Berita Hubla"}
+            color={"#903055"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Rencana Anggaran Kerja"}
+            color={"#808080"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Kerjasama Luar Negeri"}
+            color={"#15224E"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Tol Laut"}
+            color={"#15224E"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
+          <CardButton
+            imgSrc={require("~/assets/menu/features/icon1.png")}
+            title={"Hublapedia"}
+            color={"#15756A"}
+            styleIcon={{ 
+              width: 70,
+              height: 56,
+             }}
+          />
         </View>
       </ScrollView>
     </View>
