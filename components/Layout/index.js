@@ -15,7 +15,7 @@ export default function Layout({
 }) {
   const { height, width } = Dimensions.get("window");
   const PaddingLayout = 10;
-  const HeightLayout = 70;
+  const HeightLayout = 75;
   const CalculateHeight = HeightLayout * 2;
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -54,7 +54,7 @@ export default function Layout({
         <View
           style={{
             height: height - CalculateHeight,
-            paddingBottom: 10,
+            paddingBottom: 0,
             backgroundColor: backgroundPrimary,
           }}
         >

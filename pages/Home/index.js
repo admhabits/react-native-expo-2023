@@ -25,6 +25,7 @@ import { backgroundPrimary } from "~/components/configs/Colors";
 import UnitKerja from "./Unitkerja";
 import BeritaHubla from "./Berita";
 import FeatureMenu from "./Feature";
+import FootSection from "./FootSection";
 
 const CardMenu = ({
   iconName,
@@ -176,7 +177,7 @@ const Home = ({ navigation }) => {
   return (
     <LayoutScreen statusBar={toscaColor} navigation={navigation}>
       <ScrollView
-        style={{ marginBottom: 25, marginTop: -1 }}
+        style={{ marginBottom: -20, marginTop: -1 }}
         showsVerticalScrollIndicator={false}
       >
         <SwiperHome />
@@ -184,6 +185,7 @@ const Home = ({ navigation }) => {
         <BeritaHubla />
         <FeatureMenu/>
         <UnitKerja />
+        <FootSection/>
       </ScrollView>
     </LayoutScreen>
   );
