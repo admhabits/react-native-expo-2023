@@ -12,9 +12,9 @@ import {
 import { ThreeColumnWidth } from "~/components/configs/Layout";
 import { orangeColor } from "~/components/configs/Colors";
 
-const CardButton = ({ title, color }) => {
+const CardButton = ({ title, color, imgSrc }) => {
   return (
-    <View style={{ ...styles.cardHome, backgroundColor: color }}>
+    <View style={{ ...styles.cardHome, backgroundColor: color,}}>
       <TouchableOpacity>
         <Text
           style={{
@@ -28,6 +28,15 @@ const CardButton = ({ title, color }) => {
           {title}
         </Text>
       </TouchableOpacity>
+      <Image
+        source={imgSrc}
+        style={{
+          width: 70,
+          height: 64,
+          position: "absolute",
+          right: '40%',
+          bottom: 30,
+        }}/>
       <Image
         source={require("~/assets/menu/hubla-grey.png")}
         style={{
@@ -54,14 +63,14 @@ const FeatureMenu = () => {
     >
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={{ paddingTop: 10, gap: 20, flexDirection: "row" }}>
-          <CardButton title={"Permohonan Informasi"} color={orangeColor} />
-          <CardButton title={"Aplikasi Online"} color={"#255D78"} />
-          <CardButton title={"Newsletter Hubla"} color={"#15756A"} />
-          <CardButton title={"Berita Hubla"} color={"#903055"} />
-          <CardButton title={"Rencana Anggaran Kerja"} color={"#808080"} />
-          <CardButton title={"Kerjasama Luar Negeri"} color={"#15224E"} />
-          <CardButton title={"Tol Laut"} color={"#15224E"} />
-          <CardButton title={"Hublapedia"} color={"#15756A"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Permohonan Informasi"} color={orangeColor} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Aplikasi Online"} color={"#255D78"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Newsletter Hubla"} color={"#15756A"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Berita Hubla"} color={"#903055"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Rencana Anggaran Kerja"} color={"#808080"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Kerjasama Luar Negeri"} color={"#15224E"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Tol Laut"} color={"#15224E"} />
+          <CardButton imgSrc={require("~/assets/menu/features/icon2.png")} title={"Hublapedia"} color={"#15756A"} />
         </View>
       </ScrollView>
     </View>
