@@ -18,29 +18,29 @@ export default function Layout({
   const HeightLayout = 75;
   const CalculateHeight = HeightLayout * 2;
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const auth = useSelector((state) => state.auth);
+  // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  // const auth = useSelector((state) => state.auth);
 
-  console.log(auth);
+  // console.log(auth);
 
-  useEffect(() => {
-    async function fetchLocalStorage() {
-      const initialState = await loadState();
-      console.log("==== isRememberMe ? :", initialState.rememberMe, "=====");
-      if (initialState.rememberMe) {
-        navigation.navigate("Home");
-      }
-    }
-    fetchLocalStorage();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchLocalStorage() {
+  //     const initialState = await loadState();
+  //     console.log("==== isRememberMe ? :", initialState.rememberMe, "=====");
+  //     if (initialState.rememberMe) {
+  //       navigation.navigate("Home");
+  //     }
+  //   }
+  //   fetchLocalStorage();
+  // }, []);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigation.navigate("Home");
-    } else {
-      navigation.navigate("Login");
-    }
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     navigation.navigate("Home");
+  //   } else {
+  //     navigation.navigate("Login");
+  //   }
+  // }, [isAuthenticated]);
 
   return (
     <>

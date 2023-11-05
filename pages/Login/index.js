@@ -84,22 +84,22 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    const backAction = () => {
-      Alert.alert("User Confirmation", "Kamu yakin ingin keluar aplikasi ?", [
-        { text: "Batal", onPress: () => false, style: "cancel" },
-        { text: "Ya", onPress: () => BackHandler.exitApp() },
-      ]);
-      return true;
-    };
+  // useEffect(() => {
+  //   const backAction = () => {
+  //     Alert.alert("User Confirmation", "Kamu yakin ingin keluar aplikasi ?", [
+  //       { text: "Batal", onPress: () => false, style: "cancel" },
+  //       { text: "Ya", onPress: () => BackHandler.exitApp() },
+  //     ]);
+  //     return true;
+  //   };
 
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
+  //   const backHandler = BackHandler.addEventListener(
+  //     "hardwareBackPress",
+  //     backAction
+  //   );
 
-    return () => backHandler.remove(); // Cleanup the event listener on component unmount
-  }, []);
+  //   return () => backHandler.remove(); // Cleanup the event listener on component unmount
+  // }, []);
 
   const navigation = useNavigation();
   useEffect(() => {

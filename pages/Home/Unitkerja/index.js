@@ -9,10 +9,10 @@ const UnitKerja = () => {
   return (
     <View
       style={{
-        height: 200,
-        backgroundColor: "white",
+        height: 180,
+        backgroundColor: "transparent",
         marginTop: 15,
-        padding: 20,
+        paddingHorizontal: 20,
       }}
     >
       <Text style={styles.textHeading}>Unit Kerja</Text>
